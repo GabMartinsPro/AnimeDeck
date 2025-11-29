@@ -1,0 +1,180 @@
+/* --- Variáveis e Reset Básico --- */
+:root {
+    --dark-bg: #121212;
+    --card-bg: #1e1e1e;
+    --text-color: #f0f0f0;
+    --accent-color: #f73859; /* Cor de destaque (Vermelho/Rosa) */
+    --transition-speed: 0.3s;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+}
+
+/* --- Header e Navegação --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+.header h1 {
+    font-size: 24px;
+    color: var(--accent-color);
+}
+
+.search-bar {
+    display: flex;
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    overflow: hidden;
+    width: 350px;
+}
+
+.search-bar input {
+    background: none;
+    border: none;
+    padding: 10px 15px;
+    color: var(--text-color);
+    outline: none;
+    flex-grow: 1;
+}
+
+.header button {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+.nav-btn:hover {
+    background-color: #2c2c2c;
+    border-radius: 15px;
+}
+
+/* --- Hero Banner --- */
+.hero-banner {
+    padding: 20px 40px;
+}
+
+.banner-content {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: 1;
+}
+
+.show-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 3;
+}
+
+.arrow {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 30px;
+    line-height: 1;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    z-index: 5;
+    transition: background-color var(--transition-speed);
+}
+.arrow:hover {
+    background-color: var(--accent-color);
+}
+
+
+/* --- Seção de Cartões (Top 10) --- */
+.top-shows {
+    padding: 20px 40px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 15px;
+}
+
+.section-header a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.shows-grid {
+    display: grid;
+    /* 5 colunas por linha para desktops */
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
+    gap: 20px;
+}
+
+.show-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform var(--transition-speed) ease; 
+}
+
+.show-card:hover {
+    transform: scale(1.03); 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.show-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 2 / 3; /* Proporção de pôster típica */
+    object-fit: cover;
+}
+
+.show-card p {
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* --- Efeito de Mouse Seguidor (Custom Cursor) --- */
+#cursor-tracker {
+    position: fixed;
+    width: 30px; 
+    height: 30px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgb(226, 4, 4), rgba(255, 0, 0, 0));
+    pointer-events: none; 
+    transform: translate(-50%, -50%); 
+    z-index: 9999;
+    transition: transform 0.2s ease-out, background 0.5s ease; 
+    box-shadow: 0 0 10px rgba(0, 243, 41, 0.555); 
+}
