@@ -19,7 +19,22 @@
             <button class="nav-btn">Explore</button>
             <button class="nav-btn">New</button>
             <button class="nav-btn">Saved</button>
-            <button class="nav-icon">👤</button>
+            
+            <div class="profile-container">
+                <button id="profile-icon-btn" class="nav-icon" aria-label="Profile">👤</button>
+                <div id="profile-dropdown-menu" class="dropdown-menu">
+                    <div id="logged-out-options">
+                        <button class="menu-item" id="menu-login-btn">Entrar</button>
+                        <button class="menu-item" id="menu-register-btn">Registrar</button>
+                    </div>
+                    <div id="logged-in-options" style="display: none;">
+                        <button class="menu-item" id="menu-my-list-btn">Minha Lista</button>
+                        <button class="menu-item" id="menu-profile-btn">Meu Perfil</button>
+                        <button class="menu-item" id="menu-settings-btn">Configurações</button>
+                        <button class="menu-item logout" id="logout-btn">Sair</button>
+                    </div>
+                </div>
+            </div>
         </nav>
     </header>
 
@@ -44,6 +59,131 @@
                 </div>
         </section>
     </main>
+    
+    <div id="detalhes-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="fechar-detalhes" class="fechar-btn">X</button>
+            
+            <div class="detalhes-header">
+                <img id="detalhes-imagem" src="" alt="" class="detalhes-img">
+                <div class="detalhes-info">
+                    <h2 id="detalhes-titulo">Título do Anime</h2>
+                    <p class="tagline">Disponível agora!</p>
+                    <button class="btn-assistir">▶ Assistir</button>
+                    <button class="btn-minha-lista" id="minha-lista-btn">+ Minha Lista</button>
+                </div>
+            </div>
+            
+            <div class="detalhes-body">
+                <h3>Sinopse</h3>
+                <p id="detalhes-sinopse">Sinopse detalhada do anime será carregada aqui via JavaScript.</p>
+                
+                <div class="detalhes-meta">
+                    <p><strong>Gênero:</strong> Ação, Fantasia</p>
+                    <p><strong>Duração:</strong> 24 Episódios</p>
+                    <p><strong>Estúdio:</strong> MAPPA</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="login-register-modal" class="modal-overlay">
+        <div class="modal-content small-modal">
+            <button class="fechar-btn">X</button>
+            <h2>Acesso à Conta</h2>
+            
+            <div class="tab-buttons">
+                <button id="login-tab-btn" class="tab-btn active" onclick="showTab('login-form-container', this)">Login</button>
+                <button id="register-tab-btn" class="tab-btn" onclick="showTab('register-form-container', this)">Registrar</button>
+            </div>
+
+            <div id="login-form-container" class="tab-content active">
+                <form id="login-form">
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Senha" required>
+                    <button type="submit" class="btn-full">Entrar</button>
+                </form>
+            </div>
+
+            <div id="register-form-container" class="tab-content">
+                <form id="register-form">
+                    <input type="text" name="display_name" placeholder="Nome de Exibição (Opcional)">
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Senha" required>
+                    <button type="submit" class="btn-full">Registrar</button>
+                </form>
+            </div>
+            
+            <script>
+                function showTab(tabId, button) {
+                    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+                    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+                    document.getElementById(tabId).classList.add('active');
+                    button.classList.add('active');
+                }
+            </script>
+        </div>
+    </div>
+
+    <div id="profile-modal" class="modal-overlay">
+        <div class="modal-content small-modal">
+            <button class="fechar-btn">X</button>
+            <h2>Meu Perfil</h2>
+            <form id="profile-settings-form">
+                <div class="form-group">
+                    <label for="profile-display-name">Nome de Exibição</label>
+                    <input type="text" id="profile-display-name" name="profile-display-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="profile-email">Email (Não Editável)</label>
+                    <input type="email" id="profile-email" name="profile-email" disabled>
+                </div>
+                <button type="submit" class="btn-full">Salvar Alterações</button>
+            </form>
+        </div>
+    </div>
+    
+    <div id="settings-modal" class="modal-overlay">
+        <div class="modal-content small-modal">
+            <button class="fechar-btn">X</button>
+            <h2>Configurações do Aplicativo</h2>
+            <form id="app-settings-form">
+                <div class="form-group">
+                    <label for="settings-theme">Tema de Visualização</label>
+                    <select id="settings-theme" name="settings-theme">
+                        <option value="dark">Escuro (Padrão)</option>
+                        <option value="light">Claro</option>
+                        <option value="system">Seguir Sistema</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="settings-quality">Qualidade de Streaming Padrão</label>
+                    <select id="settings-quality" name="settings-quality">
+                        <option value="auto">Automático</option>
+                        <option value="1080p">1080p (Alta)</option>
+                        <option value="720p">720p (Média)</option>
+                        <option value="480p">480p (Baixa)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Notificações por Email</label>
+                    <input type="checkbox" id="settings-email-notify" name="settings-email-notify" checked>
+                    <label for="settings-email-notify" class="inline-label">Receber novidades e alertas.</label>
+                </div>
+                <button type="submit" class="btn-full">Salvar Configurações</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="my-list-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="fechar-btn">X</button>
+            <h2>Minha Lista de Animes</h2>
+            
+            <div id="my-list-content" class="my-list-container">
+                </div>
+        </div>
+    </div>
 
     <script src="script.js"></script> 
 </body>

@@ -1,5 +1,6 @@
 /* --- Variáveis e Reset Básico --- */
 :root {
+    --modal-bg: #1e1e1e;
     --dark-bg: #121212;
     --card-bg: #1e1e1e;
     --text-color: #f0f0f0;
@@ -177,4 +178,341 @@ body {
     z-index: 9999;
     transition: transform 0.2s ease-out, background 0.5s ease; 
     box-shadow: 0 0 10px rgba(0, 243, 41, 0.555); 
+}
+
+/* --- MODAL GERAL E DETALHES --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    overflow-y: auto;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.is-visible {
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: var(--dark-bg);
+    border-radius: 10px;
+    width: 90%;
+    max-width: 900px; 
+    margin: 50px 0; 
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s ease-out;
+}
+
+.modal-overlay.is-visible .modal-content {
+    transform: translateY(0);
+}
+
+.fechar-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 1001;
+    transition: background-color 0.2s;
+}
+
+.fechar-btn:hover {
+    background-color: #e02f4f;
+}
+
+.detalhes-header {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.detalhes-img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.detalhes-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.detalhes-info h2 {
+    font-size: 2.5em;
+    color: var(--accent-color);
+    margin-bottom: 5px;
+}
+
+.tagline {
+    color: #aaa;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.btn-assistir, .btn-minha-lista {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: opacity 0.2s, background-color 0.2s;
+}
+
+.btn-assistir {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+}
+
+.btn-minha-lista {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid #333;
+}
+
+.btn-assistir:hover, .btn-minha-lista:hover:not(.in-list) {
+    opacity: 0.8;
+}
+
+.detalhes-body {
+    margin-top: 20px;
+}
+
+.detalhes-body h3 {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+}
+
+.detalhes-meta {
+    margin-top: 20px;
+    display: flex;
+    gap: 30px;
+    color: #aaa;
+}
+
+/* Responsividade Básica do Modal de Detalhes */
+@media (max-width: 768px) {
+    .detalhes-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .detalhes-img {
+        width: 150px;
+        height: 225px;
+    }
+    .detalhes-info {
+        align-items: center;
+    }
+    .detalhes-meta {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* --- DROPDOWN DE PERFIL --- */
+.profile-container {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%; 
+    right: 0;
+    background-color: var(--card-bg);
+    border: 1px solid #333;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    min-width: 150px;
+    z-index: 1010; 
+    display: none; 
+    overflow: hidden;
+}
+
+.menu-item {
+    width: 100%;
+    padding: 10px 15px;
+    border: none;
+    background: none;
+    color: var(--text-color);
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.menu-item:hover {
+    background-color: #2c2c2c;
+}
+
+.menu-item.logout {
+    color: var(--accent-color);
+    border-top: 1px solid #333;
+}
+
+
+/* --- MODAIS DE FORMULÁRIO (LOGIN/PERFIL/CONFIG) --- */
+.modal-content.small-modal {
+    max-width: 450px; 
+    padding: 25px;
+}
+
+/* ESTILOS DE FORMULÁRIO GERAL */
+.tab-buttons {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+    background-color: #333;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.tab-btn:first-child { border-top-left-radius: 5px; }
+.tab-btn:last-child { border-top-right-radius: 5px; }
+
+.tab-btn.active {
+    background-color: var(--accent-color);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+#login-register-modal input,
+#profile-settings-form input,
+#app-settings-form input,
+#app-settings-form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    background-color: var(--card-bg);
+    border: 1px solid #333;
+    border-radius: 5px;
+    color: var(--text-color);
+    outline: none;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+.form-group .inline-label {
+    display: inline;
+    margin-left: 10px;
+}
+
+.btn-full {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-full:hover {
+    opacity: 0.9;
+}
+
+
+/* --- NOVO: ESTILOS PARA MINHA LISTA --- */
+
+/* Estilo para o botão Minha Lista quando o anime JÁ ESTÁ na lista */
+.btn-minha-lista.in-list {
+    background-color: #38a169; /* Verde para indicar que está salvo */
+    color: var(--text-color);
+    border: none;
+}
+
+.btn-minha-lista.in-list:hover {
+    background-color: #2c774d; 
+    opacity: 1;
+}
+
+/* Estilo para o Grid de Animes dentro do modal Minha Lista */
+.list-grid {
+    /* Garante que o grid de cartões caiba bem dentro do modal */
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Estilo para envolver o cartão e o botão de remover */
+.list-card-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center; /* Centraliza o card e o botão */
+}
+
+.list-card-wrapper .show-card {
+    /* Garante que o cartão ocupe a largura completa da célula do grid */
+    width: 100%;
+}
+
+.btn-remove-list {
+    padding: 5px;
+    width: 100%; /* Ocupa a largura total do card */
+    background-color: #883344; /* Vermelho mais suave */
+    color: var(--text-color);
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-remove-list:hover {
+    background-color: var(--accent-color);
+}
+
+.empty-list-msg {
+    text-align: center;
+    color: #ccc;
+    padding: 40px 0;
+    font-style: italic;
+    font-size: 1.1em;
 }
