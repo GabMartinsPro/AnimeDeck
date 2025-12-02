@@ -1,4 +1,7 @@
 /* --- Variáveis e Reset Básico --- */
+html {
+    scroll-behavior: smooth;
+}
 :root {
     --modal-bg: #1e1e1e;
     --dark-bg: #121212;
@@ -6,6 +9,15 @@
     --text-color: #f0f0f0;
     --accent-color: #f73859; /* Cor de destaque (Vermelho/Rosa) */
     --transition-speed: 0.3s;
+}
+
+/* NOVO: VARIÁVEIS PARA TEMA CLARO */
+body.light-theme {
+    --dark-bg: #f0f0f0; /* Fundo claro */
+    --card-bg: #ffffff; /* Cartões brancos */
+    --text-color: #1a1a1a; /* Texto escuro */
+    --modal-bg: #ffffff; /* Fundo do modal claro */
+    --accent-color: #e02f4f; /* Mantém o destaque, mas um pouco mais escuro */
 }
 
 * {
@@ -19,14 +31,31 @@ body {
     color: var(--text-color);
     font-family: 'Arial', sans-serif;
     min-height: 100vh;
+    /* ADICIONADO: Transição para suavizar a troca de tema */
+    transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
+/* --- Efeito de Mouse Seguidor (Custom Cursor) --- */
+#cursor-tracker {
+    position: fixed;
+    width: 30px; 
+    height: 30px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgb(226, 4, 4), rgba(255, 0, 0, 0));
+    pointer-events: none; 
+    transform: translate(-50%, -50%); 
+    z-index: 9999;
+    transition: transform 0.2s ease-out, background 0.5s ease; 
+    box-shadow: 0 0 10px rgba(0, 243, 41, 0.555); 
+}
 /* --- Header e Navegação --- */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .header h1 {
@@ -36,10 +65,16 @@ body {
 
 .search-bar {
     display: flex;
-    background-color: var(--card-bg);
+    background-color: var(--dark-bg); 
     border-radius: 20px;
     overflow: hidden;
     width: 350px;
+    border: 1px solid #333;
+}
+
+body.light-theme .search-bar {
+    border: 1px solid #ccc;
+    background-color: #e8e8e8;
 }
 
 .search-bar input {
@@ -59,11 +94,28 @@ body {
     cursor: pointer;
     transition: background-color var(--transition-speed);
 }
+.nav{
+    padding: 5px 10px;
+    text-decoration: none;
+    background-color: #4b27a0;
+    color: #ccc;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: opacity 0.2s, background-color 0.2s;
+    display: inline-block;
+}
 
 .nav-btn:hover {
     background-color: #2c2c2c;
     border-radius: 15px;
 }
+body.light-theme .nav-btn:hover {
+    background-color: #e5e5e5;
+}
+
 
 /* --- Hero Banner --- */
 .hero-banner {
@@ -86,6 +138,7 @@ body {
     object-fit: cover;
     position: absolute;
     z-index: 1;
+    transition: opacity 0.15s ease-in-out;
 }
 
 .show-info {
@@ -93,6 +146,7 @@ body {
     bottom: 20px;
     left: 20px;
     z-index: 3;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
 
 .arrow {
@@ -131,7 +185,6 @@ body {
 
 .shows-grid {
     display: grid;
-    /* 5 colunas por linha para desktops */
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
     gap: 20px;
 }
@@ -141,7 +194,7 @@ body {
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
-    transition: transform var(--transition-speed) ease; 
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed), background-color var(--transition-speed); 
 }
 
 .show-card:hover {
@@ -153,7 +206,7 @@ body {
     width: 100%;
     height: auto;
     display: block;
-    aspect-ratio: 2 / 3; /* Proporção de pôster típica */
+    aspect-ratio: 2 / 3;
     object-fit: cover;
 }
 
@@ -164,20 +217,6 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-/* --- Efeito de Mouse Seguidor (Custom Cursor) --- */
-#cursor-tracker {
-    position: fixed;
-    width: 30px; 
-    height: 30px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgb(226, 4, 4), rgba(255, 0, 0, 0));
-    pointer-events: none; 
-    transform: translate(-50%, -50%); 
-    z-index: 9999;
-    transition: transform 0.2s ease-out, background 0.5s ease; 
-    box-shadow: 0 0 10px rgba(0, 243, 41, 0.555); 
 }
 
 /* --- MODAL GERAL E DETALHES --- */
@@ -202,7 +241,7 @@ body {
 }
 
 .modal-content {
-    background-color: var(--dark-bg);
+    background-color: var(--modal-bg);
     border-radius: 10px;
     width: 90%;
     max-width: 900px; 
@@ -211,7 +250,7 @@ body {
     padding: 30px;
     position: relative;
     transform: translateY(20px);
-    transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out, background-color var(--transition-speed);
 }
 
 .modal-overlay.is-visible .modal-content {
@@ -270,16 +309,27 @@ body {
     margin-bottom: 15px;
     font-style: italic;
 }
+body.light-theme .tagline {
+    color: #666;
+}
 
-.btn-assistir, .btn-minha-lista {
+.action-buttons a {
+    text-decoration: none;
+}
+
+.btn-trailer, .btn-assistir, .btn-minha-lista {
     padding: 10px 20px;
+    background-color: #27a031;
+    color: #ccc;
     border: none;
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
     margin-right: 10px;
     transition: opacity 0.2s, background-color 0.2s;
+    display: inline-block;
 }
+
 
 .btn-assistir {
     background-color: var(--accent-color);
@@ -291,6 +341,10 @@ body {
     color: var(--text-color);
     border: 1px solid #333;
 }
+body.light-theme .btn-minha-lista {
+    border: 1px solid #ccc;
+}
+
 
 .btn-assistir:hover, .btn-minha-lista:hover:not(.in-list) {
     opacity: 0.8;
@@ -306,6 +360,9 @@ body {
     border-bottom: 1px solid #333;
     padding-bottom: 5px;
 }
+body.light-theme .detalhes-body h3 {
+    border-bottom: 1px solid #ddd;
+}
 
 .detalhes-meta {
     margin-top: 20px;
@@ -313,26 +370,10 @@ body {
     gap: 30px;
     color: #aaa;
 }
-
-/* Responsividade Básica do Modal de Detalhes */
-@media (max-width: 768px) {
-    .detalhes-header {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    .detalhes-img {
-        width: 150px;
-        height: 225px;
-    }
-    .detalhes-info {
-        align-items: center;
-    }
-    .detalhes-meta {
-        flex-direction: column;
-        gap: 10px;
-    }
+body.light-theme .detalhes-meta {
+    color: #666;
 }
+
 
 /* --- DROPDOWN DE PERFIL --- */
 .profile-container {
@@ -351,6 +392,11 @@ body {
     z-index: 1010; 
     display: none; 
     overflow: hidden;
+    transition: background-color var(--transition-speed);
+}
+body.light-theme .dropdown-menu {
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .menu-item {
@@ -367,6 +413,10 @@ body {
 .menu-item:hover {
     background-color: #2c2c2c;
 }
+body.light-theme .menu-item:hover {
+    background-color: #e5e5e5;
+}
+
 
 .menu-item.logout {
     color: var(--accent-color);
@@ -395,13 +445,23 @@ body {
     cursor: pointer;
     transition: background-color 0.2s;
 }
+body.light-theme .tab-btn {
+    background-color: #ddd;
+    color: #1a1a1a;
+}
+
 
 .tab-btn:first-child { border-top-left-radius: 5px; }
 .tab-btn:last-child { border-top-right-radius: 5px; }
 
 .tab-btn.active {
     background-color: var(--accent-color);
+    color: var(--text-color);
 }
+body.light-theme .tab-btn.active {
+    color: #fff;
+}
+
 
 .tab-content {
     display: none;
@@ -423,7 +483,17 @@ body {
     border-radius: 5px;
     color: var(--text-color);
     outline: none;
+    transition: background-color var(--transition-speed), border var(--transition-speed);
 }
+body.light-theme #login-register-modal input,
+body.light-theme #profile-settings-form input,
+body.light-theme #app-settings-form input,
+body.light-theme #app-settings-form select {
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    color: #1a1a1a;
+}
+
 
 .form-group {
     margin-bottom: 20px;
@@ -434,6 +504,9 @@ body {
     margin-bottom: 5px;
     font-size: 0.9em;
     color: #ccc;
+}
+body.light-theme .form-group label {
+    color: #666;
 }
 
 .form-group .inline-label {
@@ -458,11 +531,10 @@ body {
 }
 
 
-/* --- NOVO: ESTILOS PARA MINHA LISTA --- */
+/* --- ESTILOS PARA MINHA LISTA --- */
 
-/* Estilo para o botão Minha Lista quando o anime JÁ ESTÁ na lista */
 .btn-minha-lista.in-list {
-    background-color: #38a169; /* Verde para indicar que está salvo */
+    background-color: #38a169;
     color: var(--text-color);
     border: none;
 }
@@ -472,31 +544,27 @@ body {
     opacity: 1;
 }
 
-/* Estilo para o Grid de Animes dentro do modal Minha Lista */
 .list-grid {
-    /* Garante que o grid de cartões caiba bem dentro do modal */
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
     gap: 15px;
     margin-top: 20px;
 }
 
-/* Estilo para envolver o cartão e o botão de remover */
 .list-card-wrapper {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    align-items: center; /* Centraliza o card e o botão */
+    align-items: center; 
 }
 
 .list-card-wrapper .show-card {
-    /* Garante que o cartão ocupe a largura completa da célula do grid */
     width: 100%;
 }
 
 .btn-remove-list {
     padding: 5px;
-    width: 100%; /* Ocupa a largura total do card */
-    background-color: #883344; /* Vermelho mais suave */
+    width: 100%;
+    background-color: #883344;
     color: var(--text-color);
     border: none;
     border-radius: 4px;
@@ -515,4 +583,127 @@ body {
     padding: 40px 0;
     font-style: italic;
     font-size: 1.1em;
+}
+body.light-theme .empty-list-msg {
+    color: #666;
+}
+
+/* =================================================== */
+/* --- MEDIA QUERIES PARA RESPONSIVIDADE (768px) --- */
+/* =================================================== */
+
+@media (max-width: 768px) {
+    /* Ajustes Gerais */
+    .header, .hero-banner, .top-shows {
+        padding: 15px 20px; /* Reduz o padding lateral em telas menores */
+    }
+
+    /* Header */
+    .header {
+        flex-direction: column; /* Empilha os itens verticalmente */
+        align-items: stretch; /* Estica os itens (especialmente a barra de busca) */
+        gap: 10px;
+    }
+
+    .header h1 {
+        text-align: center; /* Centraliza o título */
+    }
+
+    .search-bar {
+        width: 100%; /* Ocupa a largura total */
+    }
+    
+    .header nav {
+        display: flex;
+        justify-content: space-around; /* Distribui os botões de navegação */
+        width: 100%;
+        margin-top: 5px;
+    }
+    
+    .nav-btn {
+        flex-grow: 1;
+        padding: 8px 10px;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    /* Hero Banner */
+    .banner-content {
+        height: 250px; /* Reduz a altura do banner */
+    }
+    
+    .show-info h2 {
+        font-size: 1.5em; /* Reduz o título do banner */
+    }
+    
+    .arrow {
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+    }
+
+    /* Shows Grid */
+    .shows-grid {
+        /* Muda para 3 colunas em telas menores */
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
+        gap: 15px;
+    }
+
+    .show-card p {
+        padding: 5px;
+        font-size: 12px;
+    }
+}
+
+/* =================================================== */
+/* --- MEDIA QUERIES PARA CELULARES (480px) --- */
+/* =================================================== */
+
+@media (max-width: 480px) {
+    /* Header */
+    .header {
+        padding: 10px 10px;
+    }
+    
+    /* Shows Grid */
+    .shows-grid {
+        /* Muda para 2 colunas em telas de celular muito pequenas */
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); 
+        gap: 10px;
+    }
+    
+    /* Modal de Detalhes (Ajuste para caber na tela) */
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+        margin: 20px auto;
+    }
+    
+    .detalhes-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .detalhes-img {
+        width: 120px;
+        height: 180px;
+    }
+    
+    .action-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        align-items: center;
+    }
+    
+    .action-buttons a, .action-buttons button {
+        width: 100%;
+        margin-right: 0;
+    }
+    
+    .detalhes-info h2 {
+        font-size: 2em;
+    }
 }

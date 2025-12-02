@@ -9,16 +9,16 @@
 <body id="mouse-effect-container">
     <div id="cursor-tracker"></div>
 
-    <header class="header">
+   <header class="header">
         <h1>AnimeDeck</h1>
         <div class="search-bar">
             <input type="text" placeholder="Pesquise algo...">
             <button aria-label="Search">🔍</button>
         </div>
         <nav>
-            <button class="nav-btn">Explore</button>
-            <button class="nav-btn">New</button>
-            <button class="nav-btn">Saved</button>
+            <a href="#top-shows-section" class="nav">Top Shows</a>
+            <a href="#top-movies-section" class="nav">Top Filmes do Ano</a>
+            <a href="#seasonal-shows-section" class="nav">Animes da Temporada</a>
             
             <div class="profile-container">
                 <button id="profile-icon-btn" class="nav-icon" aria-label="Profile">👤</button>
@@ -49,6 +49,22 @@
                 <button class="arrow right-arrow">〉</button>
             </div>
         </section>
+        <section class="top-shows" id="top-shows-section">
+            <div class="section-header">
+                <h2>Top 10 Shows</h2>
+                <a href="#">See All</a>
+            </div>
+            <div class="shows-grid">
+                </div>
+        </section>
+
+        <section class="top-shows" id="top-movies-section">
+</section>
+
+        <section class="top-shows" id="seasonal-shows-section">
+</section>
+        
+    </main>
 
         <section class="top-shows">
             <div class="section-header">
@@ -58,6 +74,25 @@
             <div class="shows-grid">
                 </div>
         </section>
+
+        <section class="top-shows" id="top-movies-section">
+            <div class="section-header">
+                <h2>Top Filmes do Ano</h2>
+                <a href="#">See All</a>
+            </div>
+            <div class="shows-grid" id="top-movies-grid">
+                </div>
+        </section>
+
+        <section class="top-shows" id="seasonal-shows-section">
+            <div class="section-header">
+                <h2>Animes da Temporada</h2>
+                <a href="#">See All</a>
+            </div>
+            <div class="shows-grid" id="seasonal-shows-grid">
+                </div>
+        </section>
+        
     </main>
     
     <div id="detalhes-modal" class="modal-overlay">
@@ -68,8 +103,13 @@
                 <img id="detalhes-imagem" src="" alt="" class="detalhes-img">
                 <div class="detalhes-info">
                     <h2 id="detalhes-titulo">Título do Anime</h2>
-                    <p class="tagline">Disponível agora!</p>
-                    <button class="btn-assistir">▶ Assistir</button>
+                    <p id="detalhes-tagline" class="tagline">Disponível agora!</p> 
+                    
+                    <div class="action-buttons">
+                        <a href="#" id="btn-trailer-link" class="btn-trailer" target="_blank">🎥 Trailer</a>
+                        <a href="#" id="btn-assistir-link" class="btn-assistir" target="_blank">▶ Assistir</a>
+                    </div>
+                    
                     <button class="btn-minha-lista" id="minha-lista-btn">+ Minha Lista</button>
                 </div>
             </div>
@@ -79,9 +119,9 @@
                 <p id="detalhes-sinopse">Sinopse detalhada do anime será carregada aqui via JavaScript.</p>
                 
                 <div class="detalhes-meta">
-                    <p><strong>Gênero:</strong> Ação, Fantasia</p>
-                    <p><strong>Duração:</strong> 24 Episódios</p>
-                    <p><strong>Estúdio:</strong> MAPPA</p>
+                    <p id="detalhes-genero"><strong>Gênero:</strong> Ação, Fantasia</p>
+                    <p id="detalhes-duracao"><strong>Duração:</strong> 24 Episódios</p>
+                    <p id="detalhes-estudio"><strong>Estúdio:</strong> MAPPA</p>
                 </div>
             </div>
         </div>
