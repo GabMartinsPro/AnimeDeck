@@ -2,9 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Variáveis Globais e Configurações Iniciais ---
     
-    // Dados Fictícios de Animes para a Grade "Top 10 Shows"
     const topShowsData = [
-        // ... (Dados existentes de 1 a 12) ...
         { 
             id: 1, 
             title: "Jujutsu Kaisen", 
@@ -125,20 +123,8 @@ document.addEventListener('DOMContentLoaded', () => {
             watchUrl: "https://www.crunchyroll.com/series/GRVR2QJ7R/hunter-x-hunter",
             trailerUrl: "https://www.youtube.com/watch?v=kU_x_T2jNws"
         },
-        { 
+        {
             id: 11, 
-            title: "Demon Slayer: Arco da vontade inabalável", 
-            sinopse: "Tanjiro Kamado junta-se ao Corpo de Extermínio de Demônios para vingar sua família e tentar transformar sua irmã, Nezuko, de volta em humana.", 
-            imageUrl: "assets/media/img/demonslayer.jpg",
-            tagline: "Caçar demônios é o seu destino.", 
-            genero: "Ação, Sobrenatural, Histórico", 
-            duracao: "4 Temporadas", 
-            estudio: "Ufotable",
-            watchUrl: "https://www.crunchyroll.com/series/GR9P3V93R/demon-slayer-kimetsu-no-yaiba",
-            trailerUrl: "https://www.youtube.com/watch?v=F1S3gH5y_D8"
-        },
-        { 
-            id: 12, 
             title: "Dragon Ball:Clássico", 
             sinopse: "As aventuras do jovem Goku e seus amigos em busca das lendárias Esferas do Dragão, capazes de realizar qualquer desejo.", 
             imageUrl:"assets/media/img/dragonball.jpg",
@@ -155,33 +141,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const topMoviesData = [
         { 
             id: 201, 
-            title: "Jujutsu Kaisen 0", 
-            sinopse: "Yuta Okkotsu, um estudante do ensino médio que ganha uma maldição poderosa, é recrutado por Gojo Satoru para a Escola Jujutsu para aprender a controlar seu poder.", 
-            imageUrl: "assets/media/img/jjk0.jpg", 
-            tagline: "A história do Feiticeiro Jujutsu zero.", 
+            title: "Demon Slayer: Kimetsu no Yaiba - Castelo Infinito", 
+            sinopse: "Os Pilares agora enfrentam Muzan e decidem atacá-lo juntos. No entanto, eles são transportados para a Fortaleza Infinita antes que possam desferir um único golpe e, portanto, são separados.", 
+            imageUrl: "assets/media/img/demonslayercastelo.jpg", 
+            tagline: "Desfecho da historia de Tanjiro e seus companheiros em uma épica trilogia.", 
             genero: "Ação, Sobrenatural, Filme", 
             duracao: "1h 45min", 
-            estudio: "MAPPA",
+            estudio: "Ufotable",
             watchUrl: "#",
             trailerUrl: "https://www.youtube.com/watch?v=F8-fV7t1h6Q"
         },
         { 
             id: 202, 
-            title: "Suzume", 
-            sinopse: "Uma garota chamada Suzume ajuda um jovem misterioso a fechar portas em ruínas por todo o Japão que causam desastres.", 
-            imageUrl: "assets/media/img/suzume.jpg", 
+            title: "Make a Girl", 
+            sinopse: "Mizutamari Akira recorre à ciência para criar sua namorada, feita pela inteligência artificial. Dentro desse amor cibernético, ele passa a programar emoções a se desenvolverem dentro da garota, obrigando-a a sentir coisas em seu interior que jamais imaginaria ter. Em uma trajetória de tentar compreender seus valores e razões, em um despertar próprio ele descobre se o que ela sente por ele é de fato amor ou outra coisa.", 
+            imageUrl: "assets/media/img/makeagirl.jpg", 
             tagline: "A história de uma jovem em um mundo de portas.", 
             genero: "Fantasia, Aventura, Romance", 
             duracao: "2h 02min", 
-            estudio: "CoMix Wave Films",
+            estudio: "Yasuda Gensho Studio",
             watchUrl: "#",
             trailerUrl: "https://www.youtube.com/watch?v=FgN_z9tE73o"
         },
-        { 
+        {
             id: 203, 
-            title: "One Piece Film Red", 
-            sinopse: "A tripulação do Chapéu de Palha visita uma ilha onde Uta, a cantora mais amada do mundo, fará seu primeiro show ao vivo.", 
-            imageUrl: "assets/media/img/opred.jpg", 
+            title: "Batman Ninja vs. Yakuza League", 
+            sinopse: "A família Batman volta ao presente e descobre que o Japão desapareceu. Agora, uma ilha gigante chamada Hinomoto flutua nos céus de Gotham City. Os Yakuza, um grupo de indivíduos superpoderosos, estão no topo e reinam sem honra ou humanidade e se parecem estranhamente com a Liga da Justiça. Batman e seus aliados precisam salvar Gotham.", 
+            imageUrl: "assets/media/img/batima.jpg", 
             tagline: "A voz que pode mudar o mundo.", 
             genero: "Ação, Música, Fantasia", 
             duracao: "1h 55min", 
@@ -284,8 +270,103 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
+    // ===================================================
+    // >>> MODIFICAÇÃO 1: DADOS DAS TEMPORADAS OCULTAS (Não renderizadas na inicial) <<<
+    // ===================================================
+    const hiddenSeasonsData = [
+        // Adicione aqui as temporadas que *não* devem aparecer na tela inicial.
+        // Elas devem ter um 'id' único (ex: começando de 400).
+        { 
+            id: 401, 
+            title: "My Hero Academia - 1ª Temporada", 
+            sinopse: "O início da jornada de Izuku Midoriya.", 
+            imageUrl: "assets/media/img/Myhero.jpg",
+            tagline: "O começo do maior herói.", 
+            genero: "Ação, Superpoderes", 
+            duracao: "13 Episódios", 
+            estudio: "Bones",
+            watchUrl: "...",
+            isSeason: true 
+        },
+        { 
+            id: 402, 
+            title: "My Hero Academia - 2ª Temporada (Festival Esportivo)", 
+            sinopse: "O Festival Esportivo da U.A. e o surgimento de novos rivais.", 
+            imageUrl: "assets/media/img/Myhero.jpg",
+            tagline: "Prove o seu valor.", 
+            genero: "Ação, Superpoderes", 
+            duracao: "25 Episódios", 
+            estudio: "Bones",
+            watchUrl: "...",
+            isSeason: true
+        },
+        { 
+            id: 403, 
+            title: "Attack on Titan - 1ª Temporada", 
+            sinopse: "A primeira invasão dos Titãs e a descoberta dos segredos de Eren.", 
+            imageUrl: "assets/media/img/attackontitan.jpg",
+            tagline: "A humanidade contra o terror.", 
+            genero: "Ação, Militar, Drama", 
+            duracao: "25 Episódios", 
+            estudio: "Wit Studio",
+            watchUrl: "...",
+            isSeason: true
+        },
+        { 
+            id: 404, 
+            title: "Demon Slayer: Arco da vontade inabalável", 
+            sinopse: "Tanjiro Kamado junta-se ao Corpo de Extermínio de Demônios para vingar sua família e tentar transformar sua irmã, Nezuko, de volta em humana.", 
+            imageUrl: "assets/media/img/demonslayer1.PNG",
+            tagline: "Caçar demônios é o seu destino.", 
+            genero: "Ação, Sobrenatural, Histórico", 
+            duracao: "26 episodios", 
+            estudio: "Ufotable",
+            watchUrl: "https://www.crunchyroll.com/series/GR9P3V93R/demon-slayer-kimetsu-no-yaiba",
+            trailerUrl: "https://www.youtube.com/watch?v=F1S3gH5y_D8"
+        },
+        { 
+            id: 405, 
+            title: "Demon Slayer: Arco do Trem Infinito", 
+            sinopse: "Tanjiro Kamado junta-se ao Corpo de Extermínio de Demônios para vingar sua família e tentar transformar sua irmã, Nezuko, de volta em humana.", 
+            imageUrl: "assets/media/img/mugentrain.jpg",
+            tagline: "Caçar demônios é o seu destino.", 
+            genero: "Ação, Sobrenatural, Histórico", 
+            duracao: "26 episodios", 
+            estudio: "Ufotable",
+            watchUrl: "https://www.crunchyroll.com/series/GR9P3V93R/demon-slayer-kimetsu-no-yaiba",
+            trailerUrl: "https://www.youtube.com/watch?v=F1S3gH5y_D8"
+        },
+        { 
+            id: 406, 
+            title: "Demon Slayer: Distrito do Entretenimento", 
+            sinopse: "Tanjiro Kamado junta-se ao Corpo de Extermínio de Demônios para vingar sua família e tentar transformar sua irmã, Nezuko, de volta em humana.", 
+            imageUrl: "assets/media/img/distrito.png",
+            tagline: "Caçar demônios é o seu destino.", 
+            genero: "Ação, Sobrenatural, Histórico", 
+            duracao: "26 episodios", 
+            estudio: "Ufotable",
+            watchUrl: "https://www.crunchyroll.com/series/GR9P3V93R/demon-slayer-kimetsu-no-yaiba",
+            trailerUrl: "https://www.youtube.com/watch?v=F1S3gH5y_D8"
+        }
+        // Adicione mais temporadas de outros animes aqui
+    ];
+
+    // ===================================================
+    // >>> MODIFICAÇÃO 2: ARRAY UNIFICADO PARA PESQUISA <<<
+    // O seu código anterior usava `topShowsData.concat(topMoviesData).concat(seasonalShowsData)`
+    // Agora incluímos também o `hiddenSeasonsData`.
+    // ===================================================
+    const allSearchableData = [
+        ...topShowsData,
+        ...topMoviesData,
+        ...seasonalShowsData,
+        ...bannerShowsData, // Incluindo os do banner também, para pesquisa
+        ...hiddenSeasonsData // Adiciona as temporadas ocultas
+    ];
+    
     // ATUALIZAÇÃO: Armazena todos os shows no localStorage
-    localStorage.setItem('animeDeckShows', JSON.stringify(topShowsData.concat(bannerShowsData).concat(topMoviesData).concat(seasonalShowsData)));
+    // Usa o novo array unificado para garantir que a lista completa seja salva
+    localStorage.setItem('animeDeckShows', JSON.stringify(allSearchableData));
     
     // Elementos da Página Principal
     // ATUALIZAÇÃO: Agora a busca só renderiza no showsGrid principal.
@@ -453,41 +534,82 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- LÓGICA DE BUSCA (FILTRAGEM) ---
     // ----------------------------------------------------------------------
     
-    // ATUALIZAÇÃO: Agora a busca filtra em todos os dados e só renderiza no grid principal.
-    searchInput.addEventListener('input', (e) => {
-        const searchTerm = e.target.value.toLowerCase().trim();
-        // Concatena todos os dados para a busca.
-        const allSearchableData = topShowsData.concat(topMoviesData).concat(seasonalShowsData);
+    // ===================================================
+    // >>> MODIFICAÇÃO 3: REESTRUTURAÇÃO DA LÓGICA DE BUSCA <<<
+    // A busca agora usa `allSearchableData` e manipula a visibilidade das seções.
+    // ===================================================
 
-        if (searchTerm.length > 0) {
-            const filteredShows = allSearchableData.filter(anime => 
-                anime.title.toLowerCase().includes(searchTerm) || 
-                anime.sinopse.toLowerCase().includes(searchTerm) ||
-                anime.genero.toLowerCase().includes(searchTerm)
-            );
-            
-            // Renderiza apenas no grid principal e oculta os outros temporariamente
-            document.querySelector('.top-shows h2').textContent = `Resultados da Busca para "${e.target.value}"`;
-            document.querySelector('.top-shows a').style.display = 'none';
-            document.getElementById('top-movies-section').style.display = 'none';
-            document.getElementById('seasonal-shows-section').style.display = 'none';
-
-            renderShows(showsGrid, filteredShows);
-            attachCardListeners(); // Reanexa listeners após a renderização da busca
-            
-        } else {
-            // Volta para a visualização padrão.
-            document.querySelector('.top-shows h2').textContent = 'Top 10 Shows';
-            document.querySelector('.top-shows a').style.display = 'inline';
-            document.getElementById('top-movies-section').style.display = 'block';
-            document.getElementById('seasonal-shows-section').style.display = 'block';
-
-            renderShows(showsGrid, topShowsData); // Inicializa a grade principal.
-            renderShows(moviesGrid, topMoviesData); // Inicializa a grade de filmes.
-            renderShows(seasonalGrid, seasonalShowsData); // Inicializa a grade da temporada.
-            attachCardListeners('.shows-grid'); // Anexa listeners a todas as grades.
+    // Cria/seleciona o container de resultados de busca (será adicionado no initializeApp)
+    let searchResultsSection; 
+    
+    function initializeSearch() {
+        const mainContainer = document.querySelector('main');
+        
+        // Cria um container para os resultados de pesquisa, se ainda não existir
+        searchResultsSection = document.getElementById('search-results-section');
+        if (!searchResultsSection) {
+            searchResultsSection = document.createElement('section');
+            searchResultsSection.id = 'search-results-section';
+            searchResultsSection.style.display = 'none'; // Inicialmente escondido
+            searchResultsSection.innerHTML = '<h2>Resultados da Pesquisa</h2><div id="search-grid" class="shows-grid"></div>';
+            mainContainer.appendChild(searchResultsSection); // Adiciona ao container principal 'main'
         }
-    });
+        
+        const searchGrid = document.getElementById('search-grid');
+        const mainSections = document.querySelectorAll('main section'); 
+        
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+
+            if (query.length > 2) { 
+                // 1. Esconder todas as seções principais do home
+                mainSections.forEach(section => {
+                    // Ignora o banner e a seção de resultados de busca
+                    if (section.id !== 'search-results-section' && !section.classList.contains('hero-banner')) {
+                        section.style.display = 'none';
+                    }
+                });
+                
+                // 2. Mostrar a seção de resultados
+                searchResultsSection.style.display = 'block';
+                searchResultsSection.querySelector('h2').textContent = `Resultados da Pesquisa para: "${query}"`;
+                searchGrid.innerHTML = ''; // Limpa resultados anteriores
+
+                // 3. Filtrar os dados no array unificado (inclui as temporadas ocultas)
+                const results = allSearchableData.filter(show =>
+                    show.title.toLowerCase().includes(query) ||
+                    (show.tagline && show.tagline.toLowerCase().includes(query)) ||
+                    (show.genero && show.genero.toLowerCase().includes(query)) ||
+                    (show.sinopse && show.sinopse.toLowerCase().includes(query))
+                );
+
+                // 4. Renderizar resultados
+                if (results.length > 0) {
+                    renderShows(searchGrid, results); 
+                    attachCardListeners('#search-grid'); // Anexa listeners apenas aos novos cards de busca
+                } else {
+                     searchGrid.innerHTML = '<p style="text-align: center; padding: 20px; font-size: 1.2em;">Nenhum resultado encontrado para "' + query + '".</p>';
+                }
+
+            } else {
+                // 1. Mostrar as seções principais
+                mainSections.forEach(section => {
+                    // Reverte o display das seções principais (assumindo que `style.display = ''` é suficiente)
+                    if (section.id !== 'search-results-section') {
+                        section.style.display = ''; 
+                    }
+                });
+                // 2. Esconder a seção de resultados da pesquisa
+                searchResultsSection.style.display = 'none';
+                
+                // Reanexa listeners aos cards padrão da tela inicial
+                attachCardListeners('.shows-grid');
+            }
+        });
+    }
+    
+    // Remove o antigo listener de input que estava logo após a definição do searchInput
+    // O novo listener está dentro da função initializeSearch (criada acima).
     
     // ----------------------------------------------------------------------
     // --- LÓGICA DO HERO BANNER INTERATIVO ---
@@ -626,8 +748,8 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const allAnimes = topShowsData.concat(bannerShowsData).concat(topMoviesData).concat(seasonalShowsData); // ATUALIZAÇÃO: Inclui todos os dados
-        const userList = allAnimes.filter(anime => user.myList.includes(anime.id));
+        // ATUALIZAÇÃO: Usa `allSearchableData` para buscar animes da lista, garantindo que temporadas ocultas sejam encontradas
+        const userList = allSearchableData.filter(anime => user.myList.includes(anime.id));
 
         const listGrid = document.createElement('div');
         listGrid.classList.add('shows-grid', 'list-grid');
@@ -848,9 +970,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------------------------
 
     function mostrarDetalhes(animeId) {
-        // ATUALIZAÇÃO: Busca em todos os dados
-        const allAnimes = topShowsData.concat(bannerShowsData).concat(topMoviesData).concat(seasonalShowsData);
-        const animeSelecionado = allAnimes.find(anime => anime.id === parseInt(animeId));
+        // ATUALIZAÇÃO: Busca em `allSearchableData`
+        const animeSelecionado = allSearchableData.find(anime => anime.id === parseInt(animeId));
 
         if (animeSelecionado) {
             currentAnimeId = animeId; 
@@ -918,6 +1039,9 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // 5. Inicializa o banner com o primeiro show da nova lista
         updateBanner(currentBannerIndex); 
+        
+        // 6. Inicializa a lógica de pesquisa
+        initializeSearch();
     }
     
     initializeApp();
