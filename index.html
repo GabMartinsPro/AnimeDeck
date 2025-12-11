@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AnimeDeck - Noticias de Animes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body id="mouse-effect-container">
@@ -11,11 +12,13 @@
 
    <header class="header">
         <h1>AnimeDeck</h1>
+        <button id="menu-toggle-btn" class="nav-icon" aria-label="Abrir Menu">☰</button>
+
         <div class="search-bar">
-            <input type="text" placeholder="Pesquise algo...">
-            <button aria-label="Search">🔍</button>
+            <input type="text" id="search-input" placeholder="Pesquise algo...">
+            <button aria-label="Search" id="search-btn">🔍</button>
         </div>
-        <nav>
+        <nav id="main-nav">
             <a href="#top-shows-section" class="nav">Top Shows</a>
             <a href="#top-movies-section" class="nav">Top Filmes do Ano</a>
             <a href="#seasonal-shows-section" class="nav">Animes da Temporada</a>
@@ -28,160 +31,195 @@
                         <button class="menu-item" id="menu-register-btn">Registrar</button>
                     </div>
                     <div id="logged-in-options" style="display: none;">
-                        <button class="menu-item" id="menu-my-list-btn">Minha Lista</button>
                         <button class="menu-item" id="menu-profile-btn">Meu Perfil</button>
+                        <button class="menu-item" id="menu-mylist-btn">Minha Lista</button>
                         <button class="menu-item" id="menu-settings-btn">Configurações</button>
-                        <button class="menu-item logout" id="logout-btn">Sair</button>
+                        <button class="menu-item" id="menu-logout-btn">Sair</button>
                     </div>
                 </div>
             </div>
         </nav>
-    </header>
-
-    <main>
-        <section class="hero-banner">
+   </header>
+   
+   <main>
+        <section id="hero-banner" class="hero-banner">
+            <div class="banner-overlay"></div>
+            <img id="banner-image" src="assets/media/img/demonslayer.jpg" alt="Destaque do AnimeDeck">
             <div class="banner-content">
-                <button class="arrow left-arrow">〈</button>
-                <img src="assets/media/img/demonslayer.jpg" alt="Show Name - Destaque" class="banner-image">
-                <div class="show-info">
-                    <h2>Demon Slayer: Castelo Infinito</h2>
-                </div>
-                <button class="arrow right-arrow">〉</button>
+                <h2 id="banner-title">Demon Slayer: Castelo Infinito</h2>
+                <p id="banner-synopsis">O Clímax da batalha contra Muzan Kibutsuji. Os Hashiras unem forças para o confronto final dentro do Castelo Infinito.</p>
+                <button id="banner-watch-btn" class="btn-primary">Assistir Agora</button>
+                <button id="banner-details-btn" class="btn-secondary">Detalhes</button>
             </div>
+            <button id="banner-prev" class="banner-control">‹</button>
+            <button id="banner-next" class="banner-control">›</button>
+            <div class="banner-dots" id="banner-dots-container"></div>
         </section>
-        <section class="top-shows" id="top-shows-section">
+
+        <section id="top-shows-section" class="shows-section">
             <div class="section-header">
-                <h2>Top 10 Animes</h2>
-                <a href="#">See All</a>
+                <h2>🏆 Top 10 Animes do Momento</h2>
+                <div class="controls-container">
+                    <select id="top-shows-sort" class="sort-select">
+                        <option value="default">Ordenar por Posição</option>
+                        <option value="title">Título (A-Z)</option>
+                        <option value="year">Ano de Lançamento</option>
+                    </select>
+                    <select id="top-shows-filter" class="filter-select">
+                        <option value="all">Todos os Gêneros</option>
+                        <option value="Ação">Ação</option>
+                        <option value="Fantasia">Fantasia</option>
+                        <option value="Drama">Drama</option>
+                    </select>
+                </div>
             </div>
-            <div class="shows-grid">
+            <div id="top-shows-grid" class="shows-grid">
                 </div>
         </section>
 
-        <section class="top-shows" id="top-movies-section">
-</section>
-
-        <section class="top-shows" id="seasonal-shows-section">
-</section>
+        <section id="top-movies-section" class="shows-section">
+            <div class="section-header">
+                <h2>🎬 Top Filmes do Ano</h2>
+                <div class="controls-container">
+                    <select id="top-movies-sort" class="sort-select">
+                        <option value="default">Ordenar por Destaque</option>
+                        <option value="title">Título (A-Z)</option>
+                        <option value="year">Ano de Lançamento</option>
+                    </select>
+                </div>
+            </div>
+            <div id="top-movies-grid" class="shows-grid">
+                </div>
+        </section>
         
-    </main>
-
-
-        <section class="top-shows" id="top-movies-section">
+        <section id="seasonal-shows-section" class="shows-section">
             <div class="section-header">
-                <h2>Top Filmes do Ano</h2>
-                <a href="#">See All</a>
+                <h2>✨ Animes da Temporada</h2>
+                <div class="controls-container">
+                    <select id="seasonal-shows-sort" class="sort-select">
+                        <option value="default">Ordenar por Mais Novo</option>
+                        <option value="title">Título (A-Z)</option>
+                    </select>
+                </div>
             </div>
-            <div class="shows-grid" id="top-movies-grid">
+            <div id="seasonal-shows-grid" class="shows-grid">
                 </div>
         </section>
+   </main>
+   
+   <footer class="footer">
+       <p>&copy; 2024 AnimeDeck. Todos os direitos reservados. Design Moderno para Fins de Demonstração.</p>
+   </footer>
 
-        <section class="top-shows" id="seasonal-shows-section">
-            <div class="section-header">
-                <h2>Animes da Temporada</h2>
-                <a href="#">See All</a>
-            </div>
-            <div class="shows-grid" id="seasonal-shows-grid">
-                </div>
-        </section>
-        
-    </main>
-    
-    <div id="detalhes-modal" class="modal-overlay">
+    <div id="details-modal" class="modal-overlay">
         <div class="modal-content">
-            <button id="fechar-detalhes" class="fechar-btn">X</button>
-            
+            <button class="fechar-btn">X</button>
             <div class="detalhes-header">
-                <img id="detalhes-imagem" src="" alt="" class="detalhes-img">
+                <img id="modal-image" src="" alt="Imagem do Anime">
                 <div class="detalhes-info">
-                    <h2 id="detalhes-titulo">Título do Anime</h2>
-                    <p id="detalhes-tagline" class="tagline">Disponível agora!</p> 
-                    
-                    <div class="action-buttons">
-                        <a href="#" id="btn-trailer-link" class="btn-trailer" target="_blank">🎥 Trailer</a>
-                        <a href="#" id="btn-assistir-link" class="btn-assistir" target="_blank">▶ Assistir</a>
-                    </div>
-                    
-                    <button class="btn-minha-lista" id="minha-lista-btn">+ Minha Lista</button>
+                    <h2 id="modal-title"></h2>
+                    <p id="modal-tagline" class="tagline"></p>
+                    <p><strong>Gênero:</strong> <span id="modal-genero"></span></p>
+                    <p><strong>Duração:</strong> <span id="modal-duracao"></span></p>
+                    <p><strong>Estúdio:</strong> <span id="modal-estudio"></span></p>
+                    <button id="add-to-list-btn" class="btn-primary">➕ Adicionar à Minha Lista</button>
+                    <a id="watch-now-btn" href="#" target="_blank" class="btn-secondary">Assistir Agora</a>
                 </div>
             </div>
-            
             <div class="detalhes-body">
                 <h3>Sinopse</h3>
-                <p id="detalhes-sinopse">Sinopse detalhada do anime será carregada aqui via JavaScript.</p>
-                
-                <div class="detalhes-meta">
-                    <p id="detalhes-genero"><strong>Gênero:</strong> Ação, Fantasia</p>
-                    <p id="detalhes-duracao"><strong>Duração:</strong> 24 Episódios</p>
-                    <p id="detalhes-estudio"><strong>Estúdio:</strong> MAPPA</p>
+                <p id="modal-sinopse"></p>
+                <div class="rating-section">
+                    <h4>Avaliação do Público:</h4>
+                    <div class="stars" id="modal-rating">★★★★☆</div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="login-register-modal" class="modal-overlay">
-        <div class="modal-content small-modal">
+    <div id="login-modal" class="modal-overlay">
+        <div class="modal-content">
             <button class="fechar-btn">X</button>
-            <h2>Acesso à Conta</h2>
-            
-            <div class="tab-buttons">
-                <button id="login-tab-btn" class="tab-btn active" onclick="showTab('login-form-container', this)">Login</button>
-                <button id="register-tab-btn" class="tab-btn" onclick="showTab('register-form-container', this)">Registrar</button>
-            </div>
+            <h2>Entrar</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email:</label>
+                    <input type="email" id="login-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Senha:</label>
+                    <input type="password" id="login-password" name="password" required>
+                </div>
+                <button type="submit" class="btn-full">Entrar</button>
+                <p id="login-message" class="error-msg"></p>
+            </form>
+        </div>
+    </div>
 
-            <div id="login-form-container" class="tab-content active">
-                <form id="login-form">
-                    <input type="email" name="email" placeholder="Email" required>
-                    <input type="password" name="password" placeholder="Senha" required>
-                    <button type="submit" class="btn-full">Entrar</button>
-                </form>
-            </div>
-
-            <div id="register-form-container" class="tab-content">
-                <form id="register-form">
-                    <input type="text" name="display_name" placeholder="Nome de Exibição (Opcional)">
-                    <input type="email" name="email" placeholder="Email" required>
-                    <input type="password" name="password" placeholder="Senha" required>
-                    <button type="submit" class="btn-full">Registrar</button>
-                </form>
-            </div>
-            
-            <script>
-                function showTab(tabId, button) {
-                    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-                    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-                    document.getElementById(tabId).classList.add('active');
-                    button.classList.add('active');
-                }
-            </script>
+    <div id="register-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="fechar-btn">X</button>
+            <h2>Registrar</h2>
+            <form id="register-form">
+                 <div class="form-group">
+                    <label for="register-username">Nome de Usuário:</label>
+                    <input type="text" id="register-username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email:</label>
+                    <input type="email" id="register-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Senha:</label>
+                    <input type="password" id="register-password" name="password" required>
+                </div>
+                <button type="submit" class="btn-full">Registrar</button>
+                <p id="register-message" class="error-msg"></p>
+            </form>
         </div>
     </div>
 
     <div id="profile-modal" class="modal-overlay">
-        <div class="modal-content small-modal">
+        <div class="modal-content">
             <button class="fechar-btn">X</button>
             <h2>Meu Perfil</h2>
-            <form id="profile-settings-form">
+            <div id="profile-details-container">
+                <p><strong>Nome de Usuário:</strong> <span id="profile-username-display"></span></p>
+                <p><strong>Email:</strong> <span id="profile-email-display"></span></p>
+                <p><strong>Membro Desde:</strong> <span id="profile-member-since"></span></p>
+            </div>
+            
+            <button id="edit-profile-btn" class="btn-secondary">Editar Informações</button>
+
+            <form id="edit-profile-form" style="display:none;">
+                <h3>Editar Perfil</h3>
                 <div class="form-group">
-                    <label for="profile-display-name">Nome de Exibição</label>
-                    <input type="text" id="profile-display-name" name="profile-display-name" required>
+                    <label for="edit-username">Novo Nome de Usuário:</label>
+                    <input type="text" id="edit-username" name="username" required>
                 </div>
                 <div class="form-group">
-                    <label for="profile-email">Email (Não Editável)</label>
-                    <input type="email" id="profile-email" name="profile-email" disabled>
+                    <label for="edit-email">Novo Email:</label>
+                    <input type="email" id="edit-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-password">Nova Senha (Opcional):</label>
+                    <input type="password" id="edit-password" name="password">
+                    <small>Deixe em branco para manter a senha atual.</small>
                 </div>
                 <button type="submit" class="btn-full">Salvar Alterações</button>
+                <button type="button" id="cancel-edit-btn" class="btn-secondary">Cancelar</button>
+                <p id="edit-profile-message" class="error-msg"></p>
             </form>
         </div>
     </div>
-    
+
     <div id="settings-modal" class="modal-overlay">
-        <div class="modal-content small-modal">
+        <div class="modal-content">
             <button class="fechar-btn">X</button>
-            <h2>Configurações do Aplicativo</h2>
-            <form id="app-settings-form">
+            <h2>Configurações</h2>
+            <form id="settings-form">
                 <div class="form-group">
-                    <label for="settings-theme">Tema de Visualização</label>
+                    <label for="settings-theme">Tema da Aplicação</label>
                     <select id="settings-theme" name="settings-theme">
                         <option value="dark">Escuro (Padrão)</option>
                         <option value="light">Claro</option>
@@ -216,7 +254,7 @@
                 </div>
         </div>
     </div>
-
-    <script src="script.js"></script> 
+    
+    <script src="script.js"></script>
 </body>
 </html>

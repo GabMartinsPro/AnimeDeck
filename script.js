@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Variáveis Globais e Configurações Iniciais ---
     
+    // NOVO: Adicione 'year' para ordenação!
     const topShowsData = [
         { 
             id: 1, 
@@ -12,6 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
             genero: "Ação, Sobrenatural, Escolar", 
             duracao: "2 Temporadas", 
             estudio: "MAPPA",
+            year: 2020, // NOVO
+            rating: "★★★★★", // NOVO
             watchUrl: "https://www.crunchyroll.com/series/GR9P0P52R/jujutsu-kaisen",
             trailerUrl: "https://www.youtube.com/watch?v=pkKu9hLT-t8"
         },
@@ -21,983 +24,795 @@ document.addEventListener('DOMContentLoaded', () => {
             sinopse: "O clímax épico da saga Bleach. Ichigo e a Soul Society enfrentam Yhwach e os Quincies na Guerra Sangrenta dos Mil Anos.", 
             imageUrl: "assets/media/img/bleach.jpg",
             tagline: "A Guerra Sangrenta dos Mil Anos começou.", 
-            genero: "Ação, Fantasia, Shounen", 
-            duracao: "4 Partes", 
+            genero: "Ação, Fantasia, Shonen", 
+            duracao: "2 Partes", 
             estudio: "Pierrot",
-            watchUrl: "https://www.starplus.com/series/bleach-a-guerra-sangrenta-de-mil-anos/3F9j8Q4l1GzF",
-            trailerUrl: "https://www.youtube.com/watch?v=T_g_y4d5i6E"
+            year: 2022, // NOVO
+            rating: "★★★★☆", // NOVO
+            watchUrl: "https://www.starplus.com/series/bleach-a-guerra-sangrenta-de-mil-anos/50YhHk9U5t4w",
+            trailerUrl: "https://www.youtube.com/watch?v=XQ7Q5237wBc"
         },
         { 
             id: 3, 
-            title: "Spy x Family", 
-            sinopse: "Um espião, uma assassina e uma garota com poderes psíquicos formam uma família falsa para cumprir uma missão secreta de paz mundial.", 
-            imageUrl: "assets/media/img/Spy.jpg",
-            tagline: "Uma família de mentira, missões reais.", 
-            genero: "Comédia, Espionagem", 
-            duracao: "2 Temporadas", 
-            estudio: "Wit Studio, CloverWorks",
-            watchUrl: "https://www.crunchyroll.com/series/GZJH3DSW1/spy-x-family",
-            trailerUrl: "https://www.youtube.com/watch?v=FjI1K8m7-4A"
+            title: "Attack on Titan", 
+            sinopse: "Depois que sua cidade natal é destruída e sua mãe é morta, Eren Yeager jura limpar a Terra dos Titãs.", 
+            imageUrl: "assets/media/img/aot.jpg",
+            tagline: "O mundo é cruel, mas lindo.", 
+            genero: "Ação, Drama, Fantasia Sombria", 
+            duracao: "4 Temporadas", 
+            estudio: "Wit Studio/MAPPA",
+            year: 2013, // NOVO
+            rating: "★★★★★", // NOVO
+            watchUrl: "https://www.crunchyroll.com/series/GR75QYQK6/attack-on-titan",
+            trailerUrl: "https://www.youtube.com/watch?v=MGr-5Rz06xQ"
         },
         { 
             id: 4, 
-            title: "Chainsaw Man", 
-            sinopse: "Denji, um jovem caçador de demônios, funde-se com seu demônio de estimação, Pochita, e se torna o Chainsaw Man.", 
-            imageUrl: "assets/media/img/Chainsaw.jpg",
-            tagline: "Sangue e serras pelo seu futuro.", 
-            genero: "Ação, Fantasia Sombria", 
+            title: "Frieren e a Jornada para o Além", 
+            sinopse: "A elfa maga Frieren reflete sobre a mortalidade e o legado após a derrota do Rei Demônio, embarcando em uma nova jornada.", 
+            imageUrl: "assets/media/img/frieren.jpg",
+            tagline: "O tempo passa para todos... menos para ela.", 
+            genero: "Fantasia, Aventura, Drama", 
             duracao: "1 Temporada", 
-            estudio: "MAPPA",
-            watchUrl: "https://www.crunchyroll.com/series/G0XHWMDW1/chainsaw-man",
-            trailerUrl: "https://www.youtube.com/watch?v=O1b6f0e2D9Y"
+            estudio: "Madhouse",
+            year: 2023, // NOVO
+            rating: "★★★★★", // NOVO
+            watchUrl: "https://www.crunchyroll.com/series/GEXHGW7QE/frieren-beyond-journeys-end",
+            trailerUrl: "https://www.youtube.com/watch?v=x9I8IeM-g3g"
         },
         { 
             id: 5, 
-            title: "Attack on Titan", 
-            sinopse: "Em um mundo onde a humanidade vive cercada por muros para se proteger de gigantes humanóides, Eren Jager jura vingança após perder sua mãe em um ataque.", 
-            imageUrl: "assets/media/img/attackontitan.jpg",
-            tagline: "Pela sobrevivência da humanidade.", 
-            genero: "Ação, Militar, Drama", 
-            duracao: "4 Temporadas", 
-            estudio: "Wit Studio, MAPPA",
-            watchUrl: "https://www.crunchyroll.com/series/GR75QYRN6/attack-on-titan",
-            trailerUrl: "https://www.youtube.com/watch?v=MtbK21E6lI8"
+            title: "Boku no Hero Academia", 
+            sinopse: "Em um mundo onde superpoderes são comuns, um garoto sem individualidade se esforça para se tornar o maior herói de todos.", 
+            imageUrl: "assets/media/img/mha.jpg",
+            tagline: "O futuro está em suas mãos.", 
+            genero: "Ação, Escolar, Superpoderes", 
+            duracao: "7 Temporadas", 
+            estudio: "Bones",
+            year: 2016, // NOVO
+            rating: "★★★★☆", // NOVO
+            watchUrl: "https://www.crunchyroll.com/series/GRVJDGMXR/my-hero-academia",
+            trailerUrl: "https://www.youtube.com/watch?v=rC94X9vS_q8"
         },
         { 
             id: 6, 
-            title: "One Piece", 
-            sinopse: "Monkey D. Luffy e sua tripulação, os Piratas do Chapéu de Palha, navegam em busca do tesouro One Piece para que Luffy se torne o Rei dos Piratas.", 
-            imageUrl: "assets/media/img/onepiece.jpg",
-            tagline: "O maior tesouro do mundo te espera.", 
-            genero: "Ação, Aventura, Fantasia", 
-            duracao: "1000+ Episódios", 
-            estudio: "Toei Animation",
-            watchUrl: "https://www.crunchyroll.com/series/GRMGS9VCR/one-piece",
-            trailerUrl: "https://www.youtube.com/watch?v=hS0Hq8BvY5w"
+            title: "Solo Leveling", 
+            sinopse: "O caçador mais fraco do mundo recebe uma segunda chance e embarca em uma jornada para se tornar o mais forte.", 
+            imageUrl: "assets/media/img/sololeveling.jpg",
+            tagline: "De 'caçador fraco' a 'o único invencível'.", 
+            genero: "Ação, Fantasia, Aventura", 
+            duracao: "1 Temporada", 
+            estudio: "A-1 Pictures",
+            year: 2024, // NOVO
+            rating: "★★★★☆", // NOVO
+            watchUrl: "https://www.crunchyroll.com/series/GNGH0GW3V/solo-leveling",
+            trailerUrl: "https://www.youtube.com/watch?v=9_b_r1qL29E"
         },
         { 
             id: 7, 
-            title: "Frieren: Beyond", 
-            sinopse: "A elfa maga Frieren, que vive por milênios, reflete sobre a mortalidade humana e embarca em uma nova jornada após a morte de seus companheiros de aventura.", 
-            imageUrl: "assets/media/img/Frieren.jpg",
-            tagline: "Refletindo sobre a mortalidade.", 
-            genero: "Fantasia, Slice of Life", 
-            duracao: "1 Temporada", 
-            estudio: "Madhouse",
-            watchUrl: "https://www.crunchyroll.com/series/GGEAJYB0J/frieren-beyond-journeys-end",
-            trailerUrl: "https://www.youtube.com/watch?v=34d7y7_X2hQ"
+            title: "Demon Slayer", 
+            sinopse: "Tanjiro, um garoto que teve sua família massacrada, se junta aos Caçadores de Demônios para transformar sua irmã de volta em humana.", 
+            imageUrl: "assets/media/img/demonslayer.jpg",
+            tagline: "Torne-se a lâmina que corta o mal.", 
+            genero: "Ação, Sobrenatural, Fantasia", 
+            duracao: "4 Temporadas", 
+            estudio: "ufotable",
+            year: 2019, // NOVO
+            rating: "★★★★★", // NOVO
+            watchUrl: "https://www.crunchyroll.com/series/GR9P3V54R/demon-slayer-kimetsu-no-yaiba",
+            trailerUrl: "https://www.youtube.com/watch?v=VX_Yc06R2Qc"
         },
         { 
             id: 8, 
-            title: "Oshi no Ko", 
-            sinopse: "Um médico e sua paciente renascem como os filhos gêmeos de sua idol favorita, Ai Hoshino, e mergulham no lado sombrio da indústria do entretenimento.", 
-            imageUrl: "assets/media/img/oshinoko.jpg",
-            tagline: "O brilho e a escuridão dos Idols.", 
-            genero: "Drama, Slice of Life", 
-            duracao: "1 Temporada", 
-            estudio: "Doga Kobo",
-            watchUrl: "https://www.hidive.com/tv/oshi-no-ko",
-            trailerUrl: "https://www.youtube.com/watch?v=eKFW4u5Jd2Y"
+            title: "One Piece", 
+            sinopse: "Monkey D. Luffy e sua tripulação, os Piratas do Chapéu de Palha, navegam em busca do tesouro supremo, o One Piece.", 
+            imageUrl: "assets/media/img/onepiece.jpg",
+            tagline: "O Rei dos Piratas serei eu!", 
+            genero: "Ação, Aventura, Fantasia", 
+            duracao: "1000+ Episódios", 
+            estudio: "Toei Animation",
+            year: 1999, // NOVO
+            rating: "★★★★★", // NOVO
+            watchUrl: "https://www.crunchyroll.com/series/GRNDQDwYR/one-piece",
+            trailerUrl: "https://www.youtube.com/watch?v=wgCqK8GfLvw"
         },
         { 
             id: 9, 
-            title: "My Hero Academia", 
-            sinopse: "Em um mundo de super-heróis e superpoderes (Quirks), Izuku Midoriya, nascido sem poderes, herda o poder de seu ídolo All Might e se matricula em uma escola de heróis.", 
-            imageUrl: "assets/media/img/Myhero.jpg",
-            tagline: "Seja um herói, custe o que custar.", 
-            genero: "Ação, Superpoderes", 
-            duracao: "7 Temporadas", 
-            estudio: "Bones",
-            watchUrl: "https://www.crunchyroll.com/series/GRVN0M1AY/my-hero-academia",
-            trailerUrl: "https://www.youtube.com/watch?v=EPd71gV4tqY"
+            title: "Chainsaw Man", 
+            sinopse: "Denji, um jovem endividado, se funde com um demônio-motosserra e se torna um caçador de demônios oficial.", 
+            imageUrl: "assets/media/img/csm.jpg",
+            tagline: "Corte o passado, construa o futuro.", 
+            genero: "Ação, Fantasia Sombria, Sobrenatural", 
+            duracao: "1 Temporada", 
+            estudio: "MAPPA",
+            year: 2022, // NOVO
+            rating: "★★★★☆", // NOVO
+            watchUrl: "https://www.crunchyroll.com/series/G9VMWM1MW/chainsaw-man",
+            trailerUrl: "https://www.youtube.com/watch?v=d_x5yqS3LpU"
         },
         { 
             id: 10, 
-            title: "Hunter x Hunter", 
-            sinopse: "Gon Freecss deixa sua ilha natal para se tornar um Hunter e encontrar seu pai, embarcando em aventuras com novos amigos e desafios mortais.", 
-            imageUrl: "assets/media/img/hunterxhunter.jpg",
-            tagline: "A jornada para encontrar o pai.", 
-            genero: "Aventura, Fantasia", 
-            duracao: "148 Episódios", 
-            estudio: "Madhouse",
-            watchUrl: "https://www.crunchyroll.com/series/GRVR2QJ7R/hunter-x-hunter",
-            trailerUrl: "https://www.youtube.com/watch?v=kU_x_T2jNws"
+            title: "Spy x Family", 
+            sinopse: "Um espião, uma assassina e uma telepata formam uma família falsa para cumprir uma missão secreta.", 
+            imageUrl: "assets/media/img/spyxfamily.jpg",
+            tagline: "Uma família comum... exceto que não.", 
+            genero: "Comédia, Ação, Slice of Life", 
+            duracao: "2 Temporadas", 
+            estudio: "Wit Studio/CloverWorks",
+            year: 2022, // NOVO
+            rating: "★★★★★", // NOVO
+            watchUrl: "https://www.crunchyroll.com/series/G9VHN9PP4/spy-x-family",
+            trailerUrl: "https://www.youtube.com/watch?v=z4IeT-D90O0"
         },
-        {
+        { 
             id: 11, 
-            title: "Dragon Ball:Clássico", 
-            sinopse: "As aventuras do jovem Goku e seus amigos em busca das lendárias Esferas do Dragão, capazes de realizar qualquer desejo.", 
-            imageUrl:"assets/media/img/dragonball.jpg",
-            tagline: "Embarque na jornada em busca das Esferas.", 
-            genero: "Aventura, Artes Marciais, Comédia", 
-            duracao: "153 Episódios", 
-            estudio: "Toei Animation",
-            watchUrl: "https://www.crunchyroll.com/series/G68D7ZKKR/dragon-ball",
-            trailerUrl: "https://www.youtube.com/watch?v=r0w2J36o2e8"
+            title: "Re: Zero", 
+            sinopse: "Subaru Natsuki é invocado para um outro mundo e ganha a habilidade de voltar no tempo após a morte.", 
+            imageUrl: "assets/media/img/rezero.jpg",
+            tagline: "Começar de novo, de novo e de novo.", 
+            genero: "Isekai, Fantasia, Drama", 
+            duracao: "2 Temporadas", 
+            estudio: "White Fox",
+            year: 2016, // NOVO
+            rating: "★★★★☆", // NOVO
+            watchUrl: "https://www.crunchyroll.com/series/G6KQ032V6/re-zero--starting-life-in-another-world-",
+            trailerUrl: "https://www.youtube.com/watch?v=z8S12B5-1f8"
         }
     ];
 
-    // Dados Fictícios de Filmes (NOVO)
     const topMoviesData = [
         { 
-            id: 201, 
-            title: "Demon Slayer: Kimetsu no Yaiba - Castelo Infinito", 
-            sinopse: "Os Pilares agora enfrentam Muzan e decidem atacá-lo juntos. No entanto, eles são transportados para a Fortaleza Infinita antes que possam desferir um único golpe e, portanto, são separados.", 
-            imageUrl: "assets/media/img/demonslayercastelo.jpg", 
-            tagline: "Desfecho da historia de Tanjiro e seus companheiros em uma épica trilogia.", 
-            genero: "Ação, Sobrenatural, Filme", 
-            duracao: "1h 45min", 
-            estudio: "Ufotable",
-            watchUrl: "#",
-            trailerUrl: "https://www.youtube.com/watch?v=F8-fV7t1h6Q"
-        },
-        { 
-            id: 202, 
-            title: "Make a Girl", 
-            sinopse: "Mizutamari Akira recorre à ciência para criar sua namorada, feita pela inteligência artificial. Dentro desse amor cibernético, ele passa a programar emoções a se desenvolverem dentro da garota, obrigando-a a sentir coisas em seu interior que jamais imaginaria ter. Em uma trajetória de tentar compreender seus valores e razões, em um despertar próprio ele descobre se o que ela sente por ele é de fato amor ou outra coisa.", 
-            imageUrl: "assets/media/img/makeagirl.jpg", 
-            tagline: "A história de uma jovem em um mundo de portas.", 
-            genero: "Fantasia, Aventura, Romance", 
-            duracao: "2h 02min", 
-            estudio: "Yasuda Gensho Studio",
-            watchUrl: "#",
-            trailerUrl: "https://www.youtube.com/watch?v=FgN_z9tE73o"
-        },
-        {
-            id: 203, 
-            title: "Batman Ninja vs. Yakuza League", 
-            sinopse: "A família Batman volta ao presente e descobre que o Japão desapareceu. Agora, uma ilha gigante chamada Hinomoto flutua nos céus de Gotham City. Os Yakuza, um grupo de indivíduos superpoderosos, estão no topo e reinam sem honra ou humanidade e se parecem estranhamente com a Liga da Justiça. Batman e seus aliados precisam salvar Gotham.", 
-            imageUrl: "assets/media/img/batima.jpg", 
-            tagline: "A voz que pode mudar o mundo.", 
-            genero: "Ação, Música, Fantasia", 
-            duracao: "1h 55min", 
-            estudio: "Toei Animation",
-            watchUrl: "#",
-            trailerUrl: "https://www.youtube.com/watch?v=t-Pq_W_N2aY"
-        }
-    ];
-
-    // Dados Fictícios de Animes da Temporada (NOVO)
-    const seasonalShowsData = [
-        { 
-            id: 301, 
-            title: "Dungeon Meshi", 
-            sinopse: "Um grupo de aventureiros entra em uma masmorra para salvar a irmã de um membro e, para economizar dinheiro, decide cozinhar e comer os monstros do local.", 
-            imageUrl: "assets/media/img/dungeon.jpg", 
-            tagline: "Monstros: um prato cheio.", 
-            genero: "Fantasia, Comédia, Culinária", 
-            duracao: "1 Temporada", 
-            estudio: "Trigger",
-            watchUrl: "#",
-            trailerUrl: "https://www.youtube.com/watch?v=l_q7pQ4M_eM"
-        },
-        { 
-            id: 302, 
-            title: "Solo Leveling", 
-            sinopse: "O caçador mais fraco, Jinwoo, ganha um poder misterioso após uma experiência de quase morte e embarca em uma jornada para se tornar o mais forte.", 
-            imageUrl: "assets/media/img/sololeveling.jpg", 
-            tagline: "O mais fraco agora é o mais forte.", 
-            genero: "Ação, Fantasia, Sobrenatural", 
-            duracao: "1 Temporada", 
-            estudio: "A-1 Pictures",
-            watchUrl: "#",
-            trailerUrl: "https://www.youtube.com/watch?v=uwjW4t0b85o"
-        },
-        { 
-            id: 303, 
-            title: "Mashle: Magic and Muscles", 
-            sinopse: "Em um mundo onde a magia é tudo, um jovem sem poderes compensa sua falta de habilidade mágica com músculos e força física.", 
-            imageUrl: "assets/media/img/mashle.jpg", 
-            tagline: "Magia? Eu uso a força bruta.", 
-            genero: "Comédia, Fantasia, Escolar", 
-            duracao: "2 Temporadas", 
-            estudio: "A-1 Pictures",
-            watchUrl: "#",
-            trailerUrl: "https://www.youtube.com/watch?v=uG7kUe0l_2Q"
-        }
-    ];
-
-    // Dados Fictícios de Animes para o Hero Banner (Exclusivo)
-    const bannerShowsData = [
-        // ... (Dados existentes de 101 a 104) ...
-        { 
             id: 101, 
-            title: "Tokyo Ghoul", 
-            sinopse: "Kaneki Ken se torna um meio-ghoul após um encontro com um predador. Ele deve aprender a viver no submundo de Tóquio, escondendo sua identidade.", 
-            imageUrl: "assets/media/img/tokyoghoul.png", 
-            tagline: "O terror noturno de Tóquio.", 
-            genero: "Fantasia Sombria, Ação, Mistério", 
-            duracao: "4 Temporadas", 
-            estudio: "Pierrot",
-            watchUrl: "#",
-            trailerUrl: "#"
+            title: "Suzume", 
+            sinopse: "Suzume, uma garota de 17 anos, precisa viajar por várias ruínas no Japão para fechar portas que causam desastres.", 
+            imageUrl: "assets/media/img/suzume.jpg",
+            tagline: "As portas da calamidade estão abertas.", 
+            genero: "Aventura, Fantasia, Drama", 
+            duracao: "2h 2m", 
+            estudio: "CoMix Wave Films",
+            year: 2022, // NOVO
+            rating: "★★★★★", // NOVO
+            watchUrl: "https://www.crunchyroll.com/pt-br/movie/833314/suzume",
+            trailerUrl: "https://www.youtube.com/watch?v=z59XqS9Yj3w"
         },
         { 
             id: 102, 
-            title: "Death Note", 
-            sinopse: "Um estudante encontra um caderno que pode matar qualquer pessoa cujo nome seja escrito nele. Ele decide usá-lo para limpar o mundo do mal.", 
-            imageUrl: "assets/media/img/deathnote.jpeg", 
-            tagline: "A justiça está nas suas mãos.", 
-            genero: "Mistério, Sobrenatural, Policial", 
-            duracao: "37 Episódios", 
-            estudio: "Madhouse",
-            watchUrl: "#",
-            trailerUrl: "#"
+            title: "Demon Slayer: To the Swordsmith Village", 
+            sinopse: "Uma compilação dos momentos finais do Arco do Distrito do Entretenimento e o primeiro episódio estendido do Arco da Vila dos Ferreiros.", 
+            imageUrl: "assets/media/img/ds_movie.jpg",
+            tagline: "Novas batalhas aguardam.", 
+            genero: "Ação, Fantasia", 
+            duracao: "1h 50m", 
+            estudio: "ufotable",
+            year: 2023, // NOVO
+            rating: "★★★★☆", // NOVO
+            watchUrl: "https://www.crunchyroll.com/pt-br/series/GR9P3V54R/demon-slayer-kimetsu-no-yaiba",
+            trailerUrl: "https://www.youtube.com/watch?v=z59XqS9Yj3w"
         },
         { 
             id: 103, 
-            title: "Haikyuu!!", 
-            sinopse: "O pequeno Shouyou Hinata está determinado a se tornar um grande jogador de vôlei e se junta ao clube de sua escola, superando sua altura com pura garra.", 
-            imageUrl: "assets/media/img/haikyuu.jpeg", 
-            tagline: "Voando alto, apesar da altura.", 
-            genero: "Esportes, Comédia, Escolar", 
-            duracao: "4 Temporadas", 
+            title: "One Piece Film: Red", 
+            sinopse: "Luffy e sua tripulação visitam uma ilha onde a cantora mais popular do mundo, Uta, filha de Shanks, fará um show ao vivo.", 
+            imageUrl: "assets/media/img/op_red.jpg",
+            tagline: "A voz que pode mudar o mundo.", 
+            genero: "Ação, Aventura, Música", 
+            duracao: "1h 55m", 
+            estudio: "Toei Animation",
+            year: 2022, // NOVO
+            rating: "★★★★☆", // NOVO
+            watchUrl: "https://www.netflix.com/title/81617411",
+            trailerUrl: "https://www.youtube.com/watch?v=B7bH4f9oH1U"
+        }
+    ];
+
+    const seasonalShowsData = [
+        { 
+            id: 201, 
+            title: "Kaiju No. 8", 
+            sinopse: "Kafka Hibino, um homem que sonha em se juntar à Força de Defesa, ganha o poder de se transformar em um Kaiju.", 
+            imageUrl: "assets/media/img/kaiju.jpg",
+            tagline: "Ele é a arma que o mundo precisa, e o monstro que eles temem.", 
+            genero: "Ação, Sci-Fi, Shonen", 
+            duracao: "Estreando", 
             estudio: "Production I.G",
-            watchUrl: "#",
-            trailerUrl: "#"
+            year: 2024, // NOVO
+            rating: "★★★★☆", // NOVO
+            watchUrl: "https://www.crunchyroll.com/series/GNQL0GQ92/kaiju-no-8",
+            trailerUrl: "https://www.youtube.com/watch?v=7h2K_mFv8jM"
         },
         { 
-            id: 104, 
-            title: "Vinland Saga", 
-            sinopse: "Thorfinn, um jovem viking em busca de vingança pela morte de seu pai, junta-se ao bando de seu assassino enquanto busca o paraíso: Vinland.", 
-            imageUrl: "assets/media/img/vinlandsaga.jpg", 
-            tagline: "Pela paz em um mundo de guerra.", 
-            genero: "Aventura, Histórico, Drama", 
-            duracao: "2 Temporadas", 
-            estudio: "Wit Studio, MAPPA",
-            watchUrl: "#",
-            trailerUrl: "#"
+            id: 202, 
+            title: "Wind Breaker", 
+            sinopse: "Haruka Sakura, um calouro delinquente, chega a uma escola conhecida por sua força na proteção da cidade.", 
+            imageUrl: "assets/media/img/windbreaker.jpg",
+            tagline: "Delinquentes se tornam heróis da cidade.", 
+            genero: "Ação, Escolar, Shonen", 
+            duracao: "Estreando", 
+            estudio: "CloverWorks",
+            year: 2024, // NOVO
+            rating: "★★★★☆", // NOVO
+            watchUrl: "https://www.crunchyroll.com/series/G8WH0G4M7/wind-breaker",
+            trailerUrl: "https://www.youtube.com/watch?v=J_D3z5X91o4"
+        },
+        { 
+            id: 203, 
+            title: "Black Butler: Public School Arc", 
+            sinopse: "Ciel e Sebastian se infiltram na prestigiosa Weston College para investigar o desaparecimento de estudantes.", 
+            imageUrl: "assets/media/img/blackbutler.jpg",
+            tagline: "O mordomo é, como sempre, impecável.", 
+            genero: "Mistério, Sobrenatural, Histórico", 
+            duracao: "Estreando", 
+            estudio: "CloverWorks",
+            year: 2024, // NOVO
+            rating: "★★★★☆", // NOVO
+            watchUrl: "https://www.crunchyroll.com/series/G6VNJ2Y0R/black-butler",
+            trailerUrl: "https://www.youtube.com/watch?v=T_5XkFv8jM4"
         }
     ];
-
-    // ===================================================
-    // >>> MODIFICAÇÃO 1: DADOS DAS TEMPORADAS OCULTAS (Não renderizadas na inicial) <<<
-    // ===================================================
-    const hiddenSeasonsData = [
-        // Adicione aqui as temporadas que *não* devem aparecer na tela inicial.
-        // Elas devem ter um 'id' único (ex: começando de 400).
-        { 
-            id: 401, 
-            title: "My Hero Academia - 1ª Temporada", 
-            sinopse: "O início da jornada de Izuku Midoriya.", 
-            imageUrl: "assets/media/img/Myhero.jpg",
-            tagline: "O começo do maior herói.", 
-            genero: "Ação, Superpoderes", 
-            duracao: "13 Episódios", 
-            estudio: "Bones",
-            watchUrl: "...",
-            isSeason: true 
-        },
-        { 
-            id: 402, 
-            title: "My Hero Academia - 2ª Temporada (Festival Esportivo)", 
-            sinopse: "O Festival Esportivo da U.A. e o surgimento de novos rivais.", 
-            imageUrl: "assets/media/img/Myhero.jpg",
-            tagline: "Prove o seu valor.", 
-            genero: "Ação, Superpoderes", 
-            duracao: "25 Episódios", 
-            estudio: "Bones",
-            watchUrl: "...",
-            isSeason: true
-        },
-        { 
-            id: 403, 
-            title: "Attack on Titan - 1ª Temporada", 
-            sinopse: "A primeira invasão dos Titãs e a descoberta dos segredos de Eren.", 
-            imageUrl: "assets/media/img/attackontitan.jpg",
-            tagline: "A humanidade contra o terror.", 
-            genero: "Ação, Militar, Drama", 
-            duracao: "25 Episódios", 
-            estudio: "Wit Studio",
-            watchUrl: "...",
-            isSeason: true
-        },
-        { 
-            id: 404, 
-            title: "Demon Slayer: Arco da vontade inabalável", 
-            sinopse: "Tanjiro Kamado junta-se ao Corpo de Extermínio de Demônios para vingar sua família e tentar transformar sua irmã, Nezuko, de volta em humana.", 
-            imageUrl: "assets/media/img/demonslayer1.PNG",
-            tagline: "Caçar demônios é o seu destino.", 
-            genero: "Ação, Sobrenatural, Histórico", 
-            duracao: "26 episodios", 
-            estudio: "Ufotable",
-            watchUrl: "https://www.crunchyroll.com/series/GR9P3V93R/demon-slayer-kimetsu-no-yaiba",
-            trailerUrl: "https://www.youtube.com/watch?v=F1S3gH5y_D8"
-        },
-        { 
-            id: 405, 
-            title: "Demon Slayer: Arco do Trem Infinito", 
-            sinopse: "Tanjiro Kamado junta-se ao Corpo de Extermínio de Demônios para vingar sua família e tentar transformar sua irmã, Nezuko, de volta em humana.", 
-            imageUrl: "assets/media/img/mugentrain.jpg",
-            tagline: "Caçar demônios é o seu destino.", 
-            genero: "Ação, Sobrenatural, Histórico", 
-            duracao: "26 episodios", 
-            estudio: "Ufotable",
-            watchUrl: "https://www.crunchyroll.com/series/GR9P3V93R/demon-slayer-kimetsu-no-yaiba",
-            trailerUrl: "https://www.youtube.com/watch?v=F1S3gH5y_D8"
-        },
-        { 
-            id: 406, 
-            title: "Demon Slayer: Distrito do Entretenimento", 
-            sinopse: "Tanjiro Kamado junta-se ao Corpo de Extermínio de Demônios para vingar sua família e tentar transformar sua irmã, Nezuko, de volta em humana.", 
-            imageUrl: "assets/media/img/distrito.png",
-            tagline: "Caçar demônios é o seu destino.", 
-            genero: "Ação, Sobrenatural, Histórico", 
-            duracao: "26 episodios", 
-            estudio: "Ufotable",
-            watchUrl: "https://www.crunchyroll.com/series/GR9P3V93R/demon-slayer-kimetsu-no-yaiba",
-            trailerUrl: "https://www.youtube.com/watch?v=F1S3gH5y_D8"
-        }
-        // Adicione mais temporadas de outros animes aqui
-    ];
-
-    // ===================================================
-    // >>> MODIFICAÇÃO 2: ARRAY UNIFICADO PARA PESQUISA <<<
-    // O seu código anterior usava `topShowsData.concat(topMoviesData).concat(seasonalShowsData)`
-    // Agora incluímos também o `hiddenSeasonsData`.
-    // ===================================================
-    const allSearchableData = [
-        ...topShowsData,
-        ...topMoviesData,
-        ...seasonalShowsData,
-        ...bannerShowsData, // Incluindo os do banner também, para pesquisa
-        ...hiddenSeasonsData // Adiciona as temporadas ocultas
+    
+    // Simulação de dados para o banner (usando os mesmos do Top Shows)
+    const bannerShowsData = [
+        topShowsData[6], // Demon Slayer
+        topShowsData[0], // Jujutsu Kaisen
+        topShowsData[3]  // Frieren
     ];
     
-    // ATUALIZAÇÃO: Armazena todos os shows no localStorage
-    // Usa o novo array unificado para garantir que a lista completa seja salva
-    localStorage.setItem('animeDeckShows', JSON.stringify(allSearchableData));
+    let currentBannerIndex = 0;
     
-    // Elementos da Página Principal
-    // ATUALIZAÇÃO: Agora a busca só renderiza no showsGrid principal.
-    const showsGrid = document.querySelector('.top-shows .shows-grid'); 
-    const moviesGrid = document.getElementById('top-movies-grid'); // NOVO
-    const seasonalGrid = document.getElementById('seasonal-shows-grid'); // NOVO
-    let cards = []; 
-    const cursor = document.getElementById('cursor-tracker');
+    // --- Referências DOM ---
+    const showsGrid = document.getElementById('top-shows-grid');
+    const moviesGrid = document.getElementById('top-movies-grid');
+    const seasonalGrid = document.getElementById('seasonal-shows-grid');
+    const detailModal = document.getElementById('details-modal');
+    const modalImage = document.getElementById('modal-image');
+    const modalTitle = document.getElementById('modal-title');
+    const modalTagline = document.getElementById('modal-tagline');
+    const modalGenero = document.getElementById('modal-genero');
+    const modalDuracao = document.getElementById('modal-duracao');
+    const modalEstudio = document.getElementById('modal-estudio');
+    const modalSinopse = document.getElementById('modal-sinopse');
+    const modalRating = document.getElementById('modal-rating'); // NOVO
+    const watchNowBtn = document.getElementById('watch-now-btn');
+    const addToListBtn = document.getElementById('add-to-list-btn');
+
+    const searchInput = document.getElementById('search-input');
     
-    // ... (restante das variáveis de elementos) ...
-    // ELEMENTOS DO BANNER 
-    const searchInput = document.querySelector('.search-bar input'); 
-    const leftArrow = document.querySelector('.left-arrow');
-    const rightArrow = document.querySelector('.right-arrow');
-    const bannerImage = document.querySelector('.banner-image');
-    const bannerTitle = document.querySelector('.show-info h2');
-
-    // Elementos do Modal de Animes
-    const detalhesModal = document.getElementById('detalhes-modal');
-    const detalhesTitulo = document.getElementById('detalhes-titulo');
-    const detalhesSinopse = document.getElementById('detalhes-sinopse');
-    const detalhesImagem = document.getElementById('detalhes-imagem');
-    const minhaListaBtn = document.getElementById('minha-lista-btn'); 
-    
-    const trailerLink = document.getElementById('btn-trailer-link');
-    const assistirLink = document.getElementById('btn-assistir-link'); 
-
-    const detalhesTagline = document.getElementById('detalhes-tagline');
-    const detalhesGenero = document.getElementById('detalhes-genero');
-    const detalhesDuracao = document.getElementById('detalhes-duracao');
-    const detalhesEstudio = document.getElementById('detalhes-estudio');
-
-    // Elementos do Modal de Login/Registro e Perfil
-    const loginRegisterModal = document.getElementById('login-register-modal');
-    const loginForm = document.getElementById('login-form');
-    const registerForm = document.getElementById('register-form');
+    // --- Referências aos Botões e Menus de Autenticação/Configurações ---
+    const profileIconBtn = document.getElementById('profile-icon-btn');
+    const profileDropdown = document.getElementById('profile-dropdown-menu');
+    const loggedOutOptions = document.getElementById('logged-out-options');
+    const loggedInOptions = document.getElementById('logged-in-options');
+    const loginModal = document.getElementById('login-modal');
+    const registerModal = document.getElementById('register-modal');
     const profileModal = document.getElementById('profile-modal');
     const settingsModal = document.getElementById('settings-modal');
     const myListModal = document.getElementById('my-list-modal');
-    const profileButton = document.getElementById('profile-icon-btn'); 
-    const profileMenu = document.getElementById('profile-dropdown-menu'); 
-    const profileSettingsForm = document.getElementById('profile-settings-form');
-    const appSettingsForm = document.getElementById('app-settings-form');
+    // ... (outras refs de autenticação e settings) ...
+    
+    // --- Referências aos Filtros (NOVO) ---
+    const topShowsSort = document.getElementById('top-shows-sort');
+    const topShowsFilter = document.getElementById('top-shows-filter');
+    const topMoviesSort = document.getElementById('top-movies-sort');
+    const seasonalShowsSort = document.getElementById('seasonal-shows-sort');
+    
+    // --- Referências ao Menu Hamburger (NOVO) ---
+    const menuToggleBtn = document.getElementById('menu-toggle-btn');
+    const mainNav = document.getElementById('main-nav');
 
+    // --- Lógica do Hamburger Menu (NOVO) ---
+    menuToggleBtn.addEventListener('click', () => {
+        mainNav.classList.toggle('active');
+        // Fecha o dropdown do perfil se estiver aberto
+        if (profileDropdown.classList.contains('active')) {
+            profileDropdown.classList.remove('active');
+        }
+    });
 
-    // Variável de estado
-    let currentAnimeId = null;
-    let currentBannerIndex = 0; 
+    // --- Funções Auxiliares (Tema, Modals, Usuário) ---
 
-    // ----------------------------------------------------------------------
-    // --- FUNÇÕES DE UTILIDADE E RENDERIZAÇÃO ---
-    // ----------------------------------------------------------------------
+    // ... (Funções get/setCurrentUser, applyTheme, open/closeModal, etc. permanecem as mesmas) ...
 
-    function openModal(modalElement) {
-        modalElement.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-        setTimeout(() => modalElement.classList.add('is-visible'), 10);
+    function getCurrentUser() {
+        const loggedInEmail = localStorage.getItem('loggedInUser');
+        if (!loggedInEmail) return null;
+        
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        const user = users.find(u => u.email === loggedInEmail);
+        return user;
     }
 
-    function closeModal(modalElement) {
-        modalElement.classList.remove('is-visible');
-        setTimeout(() => {
-            modalElement.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }, 300);
+    function setCurrentUser(user) {
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+        const index = users.findIndex(u => u.email === user.email);
+        
+        if (index !== -1) {
+            users[index] = user;
+        } else {
+            users.push(user);
+        }
+        localStorage.setItem('users', JSON.stringify(users));
+    }
+    
+    function applyTheme(theme) {
+        document.body.classList.remove('dark-theme', 'light-theme');
+        if (theme === 'system') {
+            const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.body.classList.add(systemDark ? 'dark-theme' : 'light-theme');
+        } else if (theme === 'light') {
+            document.body.classList.add('light-theme');
+        } else {
+            // Default é dark
+            document.body.classList.add('dark-theme'); 
+        }
+    }
+
+    function openModal(modal) {
+        closeAllModals();
+        modal.classList.add('active');
+    }
+
+    function closeModal(modal) {
+        modal.classList.remove('active');
     }
 
     function closeAllModals() {
-        [detalhesModal, loginRegisterModal, profileModal, settingsModal, myListModal].forEach(modal => {
-            if (modal && modal.classList.contains('is-visible')) {
-                closeModal(modal);
-            }
+        document.querySelectorAll('.modal-overlay').forEach(modal => {
+            modal.classList.remove('active');
         });
+        profileDropdown.classList.remove('active');
+        mainNav.classList.remove('active'); // NOVO: Fecha o menu hamburger
     }
 
-    /**
-     * Obtém o objeto do usuário logado.
-     */
-    function getCurrentUser() {
-        const currentUserId = localStorage.getItem('currentUserId');
-        if (!currentUserId) return null;
 
-        const users = JSON.parse(localStorage.getItem('animeDeckUsers') || '{}');
-        return users[currentUserId];
-    }
-    
-    /**
-     * Cria um cartão de anime (mantido para ser usado na lista).
-     */
-    function createShowCard(show) {
-        const cardDiv = document.createElement('div');
-        cardDiv.classList.add('show-card');
-        cardDiv.setAttribute('data-id', show.id); 
-        cardDiv.innerHTML = `
-            <img src="${show.imageUrl}" alt="${show.title}">
-            <p>${show.title}</p>
-        `;
-        return cardDiv;
+    // --- Lógica de Renderização e Filtros (MODIFICADO) ---
+
+    function renderShows(container, data) {
+        container.innerHTML = ''; // Limpa o container
+        data.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'show-card';
+            card.setAttribute('data-id', item.id);
+            card.setAttribute('data-list-type', container.id.split('-')[0]);
+
+            card.innerHTML = `
+                <img src="${item.imageUrl}" alt="${item.title}">
+                <h3>${item.title}</h3>
+                <p>${item.tagline}</p>
+            `;
+            container.appendChild(card);
+        });
+        attachCardListeners(); // Reanexa os listeners após renderizar
     }
 
-    // Funções auxiliares para os event listeners (necessário para remover/reatachar)
-    function cardMouseEnter() {
-        cursor.style.transform = 'translate(-50%, -50%) scale(2)'; 
-        cursor.style.background = 'radial-gradient(circle, rgba(247, 56, 89, 0.5), rgba(247, 56, 89, 0))';
-    }
-    
-    function cardMouseLeave() {
-        cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-        cursor.style.background = 'radial-gradient(circle, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0))';
-    }
-    
-    function cardClick() {
-        const idDoAnime = this.getAttribute('data-id');
-        mostrarDetalhes(idDoAnime);
-    }
-    
-    /**
-     * Anexa os event listeners (hover/click) aos cartões.
-     * ATUALIZAÇÃO: Aceita um seletor de grid para anexar aos cartões daquela seção.
-     */
-    function attachCardListeners(gridSelector = '.shows-grid') {
-        const currentCards = Array.from(document.querySelectorAll(`${gridSelector} .show-card`));
+    // Função de Filtragem e Ordenação (NOVO e CENTRAL)
+    function filterAndSort(data, containerId, sortValue, filterValue) {
+        let filteredData = [...data]; // Cria uma cópia para não alterar o original
         
-        // Remove listeners de todos os cartões (incluindo os novos nas outras seções)
+        // 1. Filtragem (Apenas para Top Shows, que tem filtro de Gênero)
+        if (containerId === 'top-shows-grid' && filterValue && filterValue !== 'all') {
+            filteredData = filteredData.filter(item => 
+                item.genero.includes(filterValue)
+            );
+        }
+
+        // 2. Ordenação
+        if (sortValue) {
+            filteredData.sort((a, b) => {
+                if (sortValue === 'title') {
+                    return a.title.localeCompare(b.title);
+                } else if (sortValue === 'year') {
+                    // Ano decrescente (Mais novo primeiro)
+                    return b.year - a.year; 
+                } else if (sortValue === 'default') {
+                    // Posição original (id crescente)
+                    return a.id - b.id; 
+                }
+                return 0;
+            });
+        }
+
+        renderShows(document.getElementById(containerId), filteredData);
+    }
+
+    // Função de Busca Global (MODIFICADO para usar a nova função de filtro/ordenação)
+    function globalSearch() {
+        const query = searchInput.value.toLowerCase();
+        
+        // Função interna para filtrar uma lista de dados
+        const filterList = (data) => data.filter(item => 
+            item.title.toLowerCase().includes(query) ||
+            item.sinopse.toLowerCase().includes(query)
+        );
+
+        // Aplica o filtro nas 3 listas
+        renderShows(showsGrid, filterList(topShowsData));
+        renderShows(moviesGrid, filterList(topMoviesData));
+        renderShows(seasonalGrid, filterList(seasonalShowsData));
+        
+        // Se a busca estiver vazia, renderiza com os filtros/ordenação atuais
+        if (query === "") {
+            applyCurrentFilters();
+        }
+    }
+    
+    // Função para aplicar os filtros atuais ao iniciar ou limpar a busca
+    function applyCurrentFilters() {
+        filterAndSort(topShowsData, 'top-shows-grid', topShowsSort.value, topShowsFilter.value);
+        filterAndSort(topMoviesData, 'top-movies-grid', topMoviesSort.value, null); 
+        filterAndSort(seasonalShowsData, 'seasonal-shows-grid', seasonalShowsSort.value, null);
+    }
+    
+    // --- Listeners para Filtros e Ordenação (NOVO) ---
+    topShowsSort.addEventListener('change', () => filterAndSort(topShowsData, 'top-shows-grid', topShowsSort.value, topShowsFilter.value));
+    topShowsFilter.addEventListener('change', () => filterAndSort(topShowsData, 'top-shows-grid', topShowsSort.value, topShowsFilter.value));
+    topMoviesSort.addEventListener('change', () => filterAndSort(topMoviesData, 'top-movies-grid', topMoviesSort.value, null));
+    seasonalShowsSort.addEventListener('change', () => filterAndSort(seasonalShowsData, 'seasonal-shows-grid', seasonalShowsSort.value, null));
+
+    // --- Detalhes do Modal e Manipulação da Lista ---
+    
+    function attachCardListeners() {
         document.querySelectorAll('.show-card').forEach(card => {
-            card.removeEventListener('mouseenter', cardMouseEnter);
-            card.removeEventListener('mouseleave', cardMouseLeave);
-            card.removeEventListener('click', cardClick);
-        });
-
-        // Adiciona listeners aos cartões da grade especificada (ou todas)
-        currentCards.forEach(card => {
-            card.addEventListener('mouseenter', cardMouseEnter);
-            card.addEventListener('mouseleave', cardMouseLeave);
-            card.addEventListener('click', cardClick);
-        });
-        
-        // Atualiza a lista global de cards (agora menos usada)
-        cards = Array.from(document.querySelectorAll('.shows-grid .show-card')); 
-    }
-    
-    /**
-     * Renderiza a lista de animes em uma grade específica.
-     * ATUALIZAÇÃO: Função genérica para renderizar em qualquer grid.
-     */
-    function renderShows(containerElement, showsToRender) {
-        containerElement.innerHTML = ''; // Limpa a grade
-
-        if (showsToRender.length === 0) {
-            containerElement.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; padding: 20px;">Nenhum item encontrado.</p>';
-            return;
-        }
-
-        showsToRender.forEach(show => {
-            const card = createShowCard(show);
-            containerElement.appendChild(card);
-        });
-        
-        // Anexa listeners para todos os cartões após a renderização.
-        // Chamado no final da inicialização para cobrir todas as grades.
-    }
-
-
-    // ----------------------------------------------------------------------
-    // --- LÓGICA DE BUSCA (FILTRAGEM) ---
-    // ----------------------------------------------------------------------
-    
-    // ===================================================
-    // >>> MODIFICAÇÃO 3: REESTRUTURAÇÃO DA LÓGICA DE BUSCA <<<
-    // A busca agora usa `allSearchableData` e manipula a visibilidade das seções.
-    // ===================================================
-
-    // Cria/seleciona o container de resultados de busca (será adicionado no initializeApp)
-    let searchResultsSection; 
-    
-    function initializeSearch() {
-        const mainContainer = document.querySelector('main');
-        
-        // Cria um container para os resultados de pesquisa, se ainda não existir
-        searchResultsSection = document.getElementById('search-results-section');
-        if (!searchResultsSection) {
-            searchResultsSection = document.createElement('section');
-            searchResultsSection.id = 'search-results-section';
-            searchResultsSection.style.display = 'none'; // Inicialmente escondido
-            searchResultsSection.innerHTML = '<h2>Resultados da Pesquisa</h2><div id="search-grid" class="shows-grid"></div>';
-            mainContainer.appendChild(searchResultsSection); // Adiciona ao container principal 'main'
-        }
-        
-        const searchGrid = document.getElementById('search-grid');
-        const mainSections = document.querySelectorAll('main section'); 
-        
-        searchInput.addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase().trim();
-
-            if (query.length > 2) { 
-                // 1. Esconder todas as seções principais do home
-                mainSections.forEach(section => {
-                    // Ignora o banner e a seção de resultados de busca
-                    if (section.id !== 'search-results-section' && !section.classList.contains('hero-banner')) {
-                        section.style.display = 'none';
-                    }
-                });
+            card.addEventListener('click', () => {
+                const id = parseInt(card.getAttribute('data-id'));
+                const listType = card.getAttribute('data-list-type');
                 
-                // 2. Mostrar a seção de resultados
-                searchResultsSection.style.display = 'block';
-                searchResultsSection.querySelector('h2').textContent = `Resultados da Pesquisa para: "${query}"`;
-                searchGrid.innerHTML = ''; // Limpa resultados anteriores
-
-                // 3. Filtrar os dados no array unificado (inclui as temporadas ocultas)
-                const results = allSearchableData.filter(show =>
-                    show.title.toLowerCase().includes(query) ||
-                    (show.tagline && show.tagline.toLowerCase().includes(query)) ||
-                    (show.genero && show.genero.toLowerCase().includes(query)) ||
-                    (show.sinopse && show.sinopse.toLowerCase().includes(query))
-                );
-
-                // 4. Renderizar resultados
-                if (results.length > 0) {
-                    renderShows(searchGrid, results); 
-                    attachCardListeners('#search-grid'); // Anexa listeners apenas aos novos cards de busca
-                } else {
-                     searchGrid.innerHTML = '<p style="text-align: center; padding: 20px; font-size: 1.2em;">Nenhum resultado encontrado para "' + query + '".</p>';
+                let data;
+                if (listType === 'top') {
+                    data = topShowsData;
+                } else if (listType === 'movies') {
+                    data = topMoviesData;
+                } else if (listType === 'seasonal') {
+                    data = seasonalShowsData;
                 }
 
-            } else {
-                // 1. Mostrar as seções principais
-                mainSections.forEach(section => {
-                    // Reverte o display das seções principais (assumindo que `style.display = ''` é suficiente)
-                    if (section.id !== 'search-results-section') {
-                        section.style.display = ''; 
-                    }
-                });
-                // 2. Esconder a seção de resultados da pesquisa
-                searchResultsSection.style.display = 'none';
-                
-                // Reanexa listeners aos cards padrão da tela inicial
-                attachCardListeners('.shows-grid');
-            }
+                const show = data.find(item => item.id === id);
+                if (show) {
+                    showDetailsModal(show);
+                }
+            });
         });
     }
-    
-    // Remove o antigo listener de input que estava logo após a definição do searchInput
-    // O novo listener está dentro da função initializeSearch (criada acima).
-    
-    // ----------------------------------------------------------------------
-    // --- LÓGICA DO HERO BANNER INTERATIVO ---
-    // ----------------------------------------------------------------------
 
-    /**
-     * Atualiza o Hero Banner com os dados do anime no índice atual.
-     */
-    function updateBanner(index) {
-        const show = bannerShowsData[index];
-        if (show) {
-            bannerImage.style.opacity = 0; 
-            setTimeout(() => {
-                bannerImage.src = show.imageUrl;
-                bannerImage.alt = show.title;
-                bannerTitle.textContent = show.title;
-                bannerImage.style.opacity = 1; 
-            }, 150); 
-        }
-    }
-
-    /**
-     * Lógica de navegação do Banner (próximo item).
-     */
-    rightArrow.addEventListener('click', () => {
-        currentBannerIndex++;
-        if (currentBannerIndex >= bannerShowsData.length) {
-            currentBannerIndex = 0; 
-        }
-        updateBanner(currentBannerIndex);
-    });
-
-    /**
-     * Lógica de navegação do Banner (item anterior).
-     */
-    leftArrow.addEventListener('click', () => {
-        currentBannerIndex--;
-        if (currentBannerIndex < 0) {
-            currentBannerIndex = bannerShowsData.length - 1; 
-        }
-        updateBanner(currentBannerIndex);
-    });
-    
-    // ----------------------------------------------------------------------
-    // --- LÓGICA DE TEMA (NOVO) ---
-    // ----------------------------------------------------------------------
-
-    /**
-     * Aplica o tema (dark ou light) ao elemento body.
-     */
-    function applyTheme(theme) {
-        if (theme === 'light') {
-            document.body.classList.add('light-theme');
+    function showDetailsModal(show) {
+        // Preenchimento do Modal
+        modalImage.src = show.imageUrl;
+        modalTitle.textContent = show.title;
+        modalTagline.textContent = show.tagline;
+        modalGenero.textContent = show.genero;
+        modalDuracao.textContent = show.duracao;
+        modalEstudio.textContent = show.estudio;
+        modalSinopse.textContent = show.sinopse;
+        modalRating.textContent = show.rating || "★★★★☆"; // NOVO: Usa o rating, ou padrão
+        watchNowBtn.href = show.watchUrl || '#';
+        addToListBtn.onclick = () => addToMyList(show);
+        
+        // Verifica se o item já está na lista
+        const user = getCurrentUser();
+        const isOnList = user && user.myList.some(item => item.id === show.id);
+        
+        if (isOnList) {
+            addToListBtn.textContent = "✔ Na Minha Lista";
+            addToListBtn.disabled = true;
         } else {
-            document.body.classList.remove('light-theme');
+            addToListBtn.textContent = "➕ Adicionar à Minha Lista";
+            addToListBtn.disabled = !user; // Desabilita se não estiver logado
         }
+
+        openModal(detailModal);
     }
 
-    // ----------------------------------------------------------------------
-    // --- LÓGICA DE AUTENTICAÇÃO E MODAIS ---
-    // ----------------------------------------------------------------------
-
-
-    /**
-     * Atualiza o estado do botão Minha Lista no modal de detalhes.
-     */
-    function updateMinhaListaBtn(animeId) {
+    function addToMyList(show) {
         const user = getCurrentUser();
         if (!user) {
-            minhaListaBtn.textContent = '+ Minha Lista';
-            minhaListaBtn.classList.remove('in-list');
+            openModal(loginModal); 
             return;
         }
 
-        const myList = user.myList || [];
-        const isInList = myList.includes(parseInt(animeId));
-
-        if (isInList) {
-            minhaListaBtn.textContent = '✔️ Na Minha Lista';
-            minhaListaBtn.classList.add('in-list');
-        } else {
-            minhaListaBtn.textContent = '+ Minha Lista';
-            minhaListaBtn.classList.remove('in-list');
-        }
-    }
-
-    /**
-     * Adiciona ou remove um anime da lista do usuário.
-     */
-    function toggleAnimeInMyList(animeId) {
-        const currentUserId = localStorage.getItem('currentUserId');
-        if (!currentUserId) {
-            alert('Você precisa estar logado para adicionar à sua lista.');
-            openModal(loginRegisterModal);
-            return;
-        }
-
-        const users = JSON.parse(localStorage.getItem('animeDeckUsers'));
-        const user = users[currentUserId];
-        let myList = user.myList || [];
-        const idInt = parseInt(animeId);
-
-        const index = myList.indexOf(idInt);
-
-        if (index > -1) {
-            myList.splice(index, 1);
-            alert('Removido da Minha Lista.');
-        } else {
-            myList.push(idInt);
-            alert('Adicionado à Minha Lista!');
-        }
-
-        user.myList = myList;
-        users[currentUserId] = user;
-        localStorage.setItem('animeDeckUsers', JSON.stringify(users));
-
-        updateMinhaListaBtn(animeId);
-    }
-
-    minhaListaBtn.addEventListener('click', () => {
-        if (currentAnimeId) {
-            toggleAnimeInMyList(currentAnimeId);
-        }
-    });
-
-    /**
-     * Carrega e exibe a lista de animes salvos no modal.
-     */
-    function loadMyList() {
-        const user = getCurrentUser();
-        const listContent = document.getElementById('my-list-content');
-        listContent.innerHTML = ''; 
-
-        if (!user || user.myList.length === 0) {
-            listContent.innerHTML = '<p class="empty-list-msg">Sua lista está vazia! Adicione alguns animes através do modal de detalhes.</p>';
-            return;
-        }
-
-        // ATUALIZAÇÃO: Usa `allSearchableData` para buscar animes da lista, garantindo que temporadas ocultas sejam encontradas
-        const userList = allSearchableData.filter(anime => user.myList.includes(anime.id));
-
-        const listGrid = document.createElement('div');
-        listGrid.classList.add('shows-grid', 'list-grid');
-
-        userList.forEach(anime => {
-            const card = createShowCard(anime);
+        const isOnList = user.myList.some(item => item.id === show.id);
+        
+        if (!isOnList) {
+            user.myList.push(show);
+            setCurrentUser(user);
             
-            const removeBtn = document.createElement('button');
-            removeBtn.textContent = 'Remover';
-            removeBtn.classList.add('btn-remove-list');
-            removeBtn.setAttribute('data-id', anime.id);
-
-            removeBtn.addEventListener('click', () => {
-                toggleAnimeInMyList(anime.id);
-                loadMyList(); 
-            });
-            
-            card.addEventListener('click', cardClick); 
-
-            const cardWrapper = document.createElement('div');
-            cardWrapper.classList.add('list-card-wrapper');
-            cardWrapper.appendChild(card);
-            cardWrapper.appendChild(removeBtn);
-            listGrid.appendChild(cardWrapper);
-        });
-
-        listContent.appendChild(listGrid);
+            // Atualiza o botão no modal de detalhes
+            const currentShowId = parseInt(document.querySelector('.show-card[data-id="'+show.id+'"]')?.getAttribute('data-id'));
+            if (currentShowId === show.id) {
+                addToListBtn.textContent = "✔ Na Minha Lista";
+                addToListBtn.disabled = true;
+            }
+            alert(`"${show.title}" adicionado à sua lista!`);
+        }
     }
     
-    document.getElementById('menu-my-list-btn').addEventListener('click', () => {
-        profileMenu.style.display = 'none';
-        if (getCurrentUser()) {
-            loadMyList();
-            openModal(myListModal);
-        } else {
-            alert('Você precisa estar logado para ver sua lista.');
-            openModal(loginRegisterModal);
-        }
-    });
+    // --- Lógica do Banner (Continua o mesmo, mas usando os novos dados) ---
 
-    /**
-     * Verifica e atualiza o menu do perfil com base no estado de login.
-     */
-    function updateProfileMenu() {
-        const currentUserId = localStorage.getItem('currentUserId');
-        const isLoggedIn = !!currentUserId;
+    // ... (updateBanner, updateBannerDots, nextBanner, prevBanner, bannerListeners) ...
 
-        document.getElementById('logged-out-options').style.display = isLoggedIn ? 'none' : 'block';
-        document.getElementById('logged-in-options').style.display = isLoggedIn ? 'block' : 'none';
+    function updateBanner(index) {
+        const show = bannerShowsData[index];
+        const bannerImage = document.getElementById('banner-image');
+        const bannerTitle = document.getElementById('banner-title');
+        const bannerSynopsis = document.getElementById('banner-synopsis');
+        const bannerWatchBtn = document.getElementById('banner-watch-btn');
+        const bannerDetailsBtn = document.getElementById('banner-details-btn');
+        const dotsContainer = document.getElementById('banner-dots-container');
 
-        profileMenu.style.display = 'none';
+        bannerImage.src = show.imageUrl;
+        bannerTitle.textContent = show.title;
+        bannerSynopsis.textContent = show.sinopse;
+        bannerWatchBtn.href = show.watchUrl || '#';
+        
+        // Passa o show para o botão de detalhes (abre o modal)
+        bannerDetailsBtn.onclick = () => showDetailsModal(show);
+
+        updateBannerDots();
+    }
+    
+    function updateBannerDots() {
+        const dotsContainer = document.getElementById('banner-dots-container');
+        dotsContainer.innerHTML = '';
+        bannerShowsData.forEach((_, index) => {
+            const dot = document.createElement('span');
+            dot.className = 'dot';
+            if (index === currentBannerIndex) {
+                dot.classList.add('active');
+            }
+            dot.addEventListener('click', () => {
+                currentBannerIndex = index;
+                updateBanner(currentBannerIndex);
+            });
+            dotsContainer.appendChild(dot);
+        });
     }
 
-    /**
-     * Simula o registro de um novo usuário (Inicializa myList: []).
-     */
-    registerForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-        const displayName = e.target.display_name.value || email.split('@')[0];
+    function nextBanner() {
+        currentBannerIndex = (currentBannerIndex + 1) % bannerShowsData.length;
+        updateBanner(currentBannerIndex);
+    }
 
-        const users = JSON.parse(localStorage.getItem('animeDeckUsers') || '{}');
+    function prevBanner() {
+        currentBannerIndex = (currentBannerIndex - 1 + bannerShowsData.length) % bannerShowsData.length;
+        updateBanner(currentBannerIndex);
+    }
 
-        if (users[email]) {
-            alert('Erro: Este email já está registrado.');
+    // Anexa listeners do banner (apenas na inicialização)
+    document.getElementById('banner-prev').addEventListener('click', prevBanner);
+    document.getElementById('banner-next').addEventListener('click', nextBanner);
+
+    // Auto-slide do banner
+    setInterval(nextBanner, 5000); 
+
+    
+    // --- Lógica de Pesquisa (MODIFICADO para chamar globalSearch) ---
+    searchInput.addEventListener('input', globalSearch);
+    document.getElementById('search-btn').addEventListener('click', globalSearch);
+    
+    // --- Lógica do Perfil e Autenticação (Mantém a lógica) ---
+
+    // ... (updateProfileMenu, showMyList, etc.) ...
+    
+    function updateProfileMenu() {
+        const user = getCurrentUser();
+        if (user) {
+            loggedOutOptions.style.display = 'none';
+            loggedInOptions.style.display = 'block';
+            document.getElementById('profile-username-display').textContent = user.username;
+            document.getElementById('profile-email-display').textContent = user.email;
+            document.getElementById('profile-member-since').textContent = user.memberSince;
+        } else {
+            loggedOutOptions.style.display = 'block';
+            loggedInOptions.style.display = 'none';
+        }
+    }
+    
+    function showMyList() {
+        const user = getCurrentUser();
+        const listContainer = document.getElementById('my-list-content');
+        listContainer.innerHTML = '';
+        
+        if (!user || user.myList.length === 0) {
+            listContainer.innerHTML = '<p class="error-msg" style="color:#aaa;">Sua lista está vazia. Adicione animes para acompanhá-los!</p>';
             return;
         }
 
-        users[email] = { 
-            email, 
-            password, 
-            displayName,
-            myList: [], 
-            appSettings: { theme: 'dark', quality: 'auto' } 
-        };
-        localStorage.setItem('animeDeckUsers', JSON.stringify(users));
-        
-        alert('Registro efetuado com sucesso! Faça o login.');
-        e.target.reset();
-        document.getElementById('login-tab-btn').click(); 
-    });
+        user.myList.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'show-card';
+            card.setAttribute('data-id', item.id);
+            // Simplesmente renderiza o card sem lógica complexa de listType no modal
+            card.innerHTML = `
+                <img src="${item.imageUrl}" alt="${item.title}">
+                <h3>${item.title}</h3>
+                <p>Status: Adicionado</p>
+            `;
+            // Adiciona um listener para remover (Exemplo simples)
+            card.addEventListener('click', () => {
+                if (confirm(`Remover "${item.title}" da sua lista?`)) {
+                    removeFromMyList(item.id, user.email);
+                }
+            });
+            listContainer.appendChild(card);
+        });
+    }
 
-    /**
-     * Simula o login de um usuário.
-     */
-    loginForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-
-        const users = JSON.parse(localStorage.getItem('animeDeckUsers') || '{}');
-        const user = users[email];
-
-        if (user && user.password === password) {
-            localStorage.setItem('currentUserId', email);
-            alert(`Bem-vindo, ${user.displayName}!`);
-            closeModal(loginRegisterModal);
-            updateProfileMenu();
-            // APLICA O TEMA DO USUÁRIO NO LOGIN
-            applyTheme(user.appSettings.theme); 
-        } else {
-            alert('Email ou senha incorretos.');
-        }
-    });
-
-    /**
-     * Lógica de Logout.
-     */
-    document.getElementById('logout-btn').addEventListener('click', () => {
-        localStorage.removeItem('currentUserId');
-        alert('Você foi desconectado.');
-        updateProfileMenu();
-        profileMenu.style.display = 'none';
-        // Volta para o tema padrão (Dark) no logout
-        applyTheme('dark'); 
-    });
-
-
-    profileButton.addEventListener('click', (e) => {
-        e.stopPropagation();
-        if (profileMenu.style.display === 'block') {
-            profileMenu.style.display = 'none';
-        } else {
-            updateProfileMenu();
-            profileMenu.style.display = 'block';
-        }
-    });
-    document.addEventListener('click', (e) => {
-        if (!profileMenu.contains(e.target) && e.target !== profileButton) {
-            profileMenu.style.display = 'none';
-        }
-    });
-
-
-    document.getElementById('menu-login-btn').addEventListener('click', () => {
-        profileMenu.style.display = 'none';
-        openModal(loginRegisterModal);
-    });
-    document.getElementById('menu-register-btn').addEventListener('click', () => {
-        profileMenu.style.display = 'none';
-        document.getElementById('register-tab-btn').click(); 
-        openModal(loginRegisterModal);
-    });
-
-
-    // Abre e Preenche o modal 'Meu Perfil'.
-    document.getElementById('menu-profile-btn').addEventListener('click', () => {
-        profileMenu.style.display = 'none';
+    function removeFromMyList(itemId, userEmail) {
         const user = getCurrentUser();
-
-        if (user) {
-            document.getElementById('profile-display-name').value = user.displayName;
-            document.getElementById('profile-email').value = user.email;
-            openModal(profileModal);
-        }
-    });
-
-    // Salva as Configurações de Perfil.
-    profileSettingsForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const currentUserId = localStorage.getItem('currentUserId');
-        const users = JSON.parse(localStorage.getItem('animeDeckUsers'));
-        const user = users[currentUserId];
-        
-        const newDisplayName = e.target['profile-display-name'].value;
-        user.displayName = newDisplayName;
-        
-        users[currentUserId] = user;
-        localStorage.setItem('animeDeckUsers', JSON.stringify(users));
-        
-        alert('Configurações de Perfil salvas com sucesso!');
-        closeModal(profileModal);
-    });
-
-
-    // Abre e Preenche o modal 'Configurações do Aplicativo'.
-    document.getElementById('menu-settings-btn').addEventListener('click', () => {
-        profileMenu.style.display = 'none';
-        const user = getCurrentUser();
-
-        if (user) {
-            const settings = user.appSettings;
-            // PREENCHE OS VALORES ATUAIS
-            document.getElementById('settings-theme').value = settings.theme || 'dark';
-            document.getElementById('settings-quality').value = settings.quality || 'auto';
-            openModal(settingsModal);
-        }
-    });
-
-    // Salva as Configurações do Aplicativo e aplica o tema (MODIFICADO)
-    appSettingsForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const currentUserId = localStorage.getItem('currentUserId');
-        const users = JSON.parse(localStorage.getItem('animeDeckUsers'));
-        const user = users[currentUserId];
-
-        const newSettings = {
-            theme: e.target['settings-theme'].value,
-            quality: e.target['settings-quality'].value
-        };
-        
-        user.appSettings = newSettings;
-        
-        users[currentUserId] = user;
-        localStorage.setItem('animeDeckUsers', JSON.stringify(users));
-        
-        // APLICA O NOVO TEMA IMEDIATAMENTE
-        applyTheme(newSettings.theme); 
-
-        alert('Configurações de Aplicativo salvas com sucesso!');
-        closeModal(settingsModal);
-    });
-
-
-    // ----------------------------------------------------------------------
-    // --- LÓGICA DE ANIME DETALHES E INICIALIZAÇÃO ---
-    // ----------------------------------------------------------------------
-
-    function mostrarDetalhes(animeId) {
-        // ATUALIZAÇÃO: Busca em `allSearchableData`
-        const animeSelecionado = allSearchableData.find(anime => anime.id === parseInt(animeId));
-
-        if (animeSelecionado) {
-            currentAnimeId = animeId; 
-            
-            detalhesTitulo.textContent = animeSelecionado.title;
-            detalhesSinopse.textContent = animeSelecionado.sinopse;
-            detalhesImagem.src = animeSelecionado.imageUrl;
-            detalhesImagem.alt = animeSelecionado.title;
-
-            trailerLink.href = animeSelecionado.trailerUrl || '#';
-            assistirLink.href = animeSelecionado.watchUrl || '#';
-
-            detalhesTagline.textContent = animeSelecionado.tagline || "Disponível agora!";
-            detalhesGenero.innerHTML = `<strong>Gênero:</strong> ${animeSelecionado.genero || 'N/A'}`;
-            detalhesDuracao.innerHTML = `<strong>Duração:</strong> ${animeSelecionado.duracao || 'N/A'}`;
-            detalhesEstudio.innerHTML = `<strong>Estúdio:</strong> ${animeSelecionado.estudio || 'N/A'}`;
-            
-            updateMinhaListaBtn(animeId);
-
-            openModal(detalhesModal);
-        } else {
-            console.error("Anime não encontrado com ID:", animeId);
-            alert("Erro ao carregar detalhes do anime.");
+        if (user && user.email === userEmail) {
+            user.myList = user.myList.filter(item => item.id !== itemId);
+            setCurrentUser(user);
+            showMyList(); // Atualiza a lista
         }
     }
 
+    // --- Listeners de Eventos (Dropdown, Login/Logout, Modais) ---
+
+    profileIconBtn.addEventListener('click', () => {
+        profileDropdown.classList.toggle('active');
+        mainNav.classList.remove('active'); // NOVO: Garante que o menu hamburger fecha
+    });
+
+    document.getElementById('menu-login-btn').addEventListener('click', () => openModal(loginModal));
+    document.getElementById('menu-register-btn').addEventListener('click', () => openModal(registerModal));
+    document.getElementById('menu-profile-btn').addEventListener('click', () => openModal(profileModal));
+    document.getElementById('menu-settings-btn').addEventListener('click', () => openModal(settingsModal));
+    document.getElementById('menu-mylist-btn').addEventListener('click', () => {
+        showMyList();
+        openModal(myListModal);
+    });
+    
+    // Listener de Logout (Exemplo)
+    document.getElementById('menu-logout-btn').addEventListener('click', () => {
+        if (confirm("Deseja realmente sair?")) {
+            localStorage.removeItem('loggedInUser');
+            updateProfileMenu();
+            applyTheme('dark'); // Volta para o tema padrão
+            closeAllModals();
+        }
+    });
+
+    // ... (Listeners de Forms de Login/Registro/Settings/Perfil) ...
+
+    document.getElementById('login-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('login-email').value;
+        const password = document.getElementById('login-password').value;
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        const user = users.find(u => u.email === email && u.password === password);
+        const message = document.getElementById('login-message');
+
+        if (user) {
+            localStorage.setItem('loggedInUser', email);
+            message.textContent = 'Login bem-sucedido!';
+            updateProfileMenu();
+            applyTheme(user.appSettings.theme);
+            setTimeout(() => {
+                closeModal(loginModal);
+                message.textContent = '';
+            }, 500);
+        } else {
+            message.textContent = 'Email ou senha inválidos.';
+        }
+    });
+
+    document.getElementById('register-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const username = document.getElementById('register-username').value;
+        const email = document.getElementById('register-email').value;
+        const password = document.getElementById('register-password').value;
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        const message = document.getElementById('register-message');
+
+        if (users.some(u => u.email === email)) {
+            message.textContent = 'Este email já está cadastrado.';
+            return;
+        }
+        
+        const newUser = {
+            username,
+            email,
+            password,
+            memberSince: new Date().toLocaleDateString('pt-BR'),
+            myList: [],
+            appSettings: { theme: 'dark', quality: 'auto', emailNotify: true }
+        };
+
+        users.push(newUser);
+        localStorage.setItem('users', JSON.stringify(users));
+        localStorage.setItem('loggedInUser', email);
+
+        message.textContent = 'Registro bem-sucedido! Você está logado.';
+        updateProfileMenu();
+        applyTheme('dark');
+        setTimeout(() => {
+            closeModal(registerModal);
+            message.textContent = '';
+        }, 500);
+    });
+    
+    document.getElementById('settings-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const theme = document.getElementById('settings-theme').value;
+        const quality = document.getElementById('settings-quality').value;
+        const emailNotify = document.getElementById('settings-email-notify').checked;
+        const user = getCurrentUser();
+        
+        if (user) {
+            user.appSettings = { theme, quality, emailNotify };
+            setCurrentUser(user);
+            applyTheme(theme);
+            alert('Configurações salvas!');
+            closeModal(settingsModal);
+        } else {
+            alert('Você precisa estar logado para salvar as configurações.');
+        }
+    });
+
+    // Toggle do formulário de edição de perfil
+    document.getElementById('edit-profile-btn').addEventListener('click', () => {
+        document.getElementById('profile-details-container').style.display = 'none';
+        document.getElementById('edit-profile-btn').style.display = 'none';
+        document.getElementById('edit-profile-form').style.display = 'block';
+
+        const user = getCurrentUser();
+        if (user) {
+            document.getElementById('edit-username').value = user.username;
+            document.getElementById('edit-email').value = user.email;
+            document.getElementById('edit-password').value = ''; 
+        }
+    });
+
+    document.getElementById('cancel-edit-btn').addEventListener('click', () => {
+        document.getElementById('profile-details-container').style.display = 'block';
+        document.getElementById('edit-profile-btn').style.display = 'block';
+        document.getElementById('edit-profile-form').style.display = 'none';
+    });
+    
+    document.getElementById('edit-profile-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const newUsername = document.getElementById('edit-username').value;
+        const newEmail = document.getElementById('edit-email').value;
+        const newPassword = document.getElementById('edit-password').value;
+        const message = document.getElementById('edit-profile-message');
+        const user = getCurrentUser();
+        
+        if (user) {
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            
+            // Verifica se o novo email já existe (excluindo o email do próprio usuário)
+            if (users.some(u => u.email === newEmail && u.email !== user.email)) {
+                message.textContent = 'Este novo email já está em uso.';
+                return;
+            }
+
+            // Atualiza os dados
+            const oldEmail = user.email;
+            user.username = newUsername;
+            user.email = newEmail;
+            if (newPassword) {
+                user.password = newPassword;
+            }
+            
+            // Remove o usuário antigo e adiciona o atualizado
+            users = users.filter(u => u.email !== oldEmail);
+            users.push(user);
+            
+            localStorage.setItem('users', JSON.stringify(users));
+            localStorage.setItem('loggedInUser', newEmail); 
+            
+            message.textContent = 'Perfil atualizado com sucesso!';
+            updateProfileMenu();
+            setTimeout(() => {
+                document.getElementById('cancel-edit-btn').click(); 
+                message.textContent = '';
+            }, 1000);
+
+        } else {
+            message.textContent = 'Erro: Usuário não logado.';
+        }
+    });
+
+
+    // --- Fechamento de Modals (Geral) ---
     document.querySelectorAll('.fechar-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             closeModal(e.target.closest('.modal-overlay'));
@@ -1026,23 +841,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const initialTheme = initialUser ? initialUser.appSettings.theme : 'dark';
         applyTheme(initialTheme);
         
-        // 2. Inicializa as grades
-        renderShows(showsGrid, topShowsData); 
-        renderShows(moviesGrid, topMoviesData); // NOVO
-        renderShows(seasonalGrid, seasonalShowsData); // NOVO
+        // 2. Inicializa as grades com filtros/ordenação padrão
+        applyCurrentFilters(); 
         
-        // 3. Anexa Listeners a todas as grades renderizadas
-        attachCardListeners();
-        
-        // 4. Inicializa o estado de autenticação
+        // 3. Inicializa o estado de autenticação
         updateProfileMenu();
         
-        // 5. Inicializa o banner com o primeiro show da nova lista
-        updateBanner(currentBannerIndex); 
-        
-        // 6. Inicializa a lógica de pesquisa
-        initializeSearch();
+        // 4. Inicializa o banner com o primeiro show da nova lista
+        updateBanner(currentBannerIndex);
     }
-    
+
     initializeApp();
+
 });
